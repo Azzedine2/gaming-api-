@@ -3,9 +3,11 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 /* Variables */
 :root {
-    
+    --main-gray: #6F6F6F;
+    --clear-gray: #C4C4C4
 }
