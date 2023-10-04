@@ -19,12 +19,13 @@ body {
 :root {
   --main-gray: #6f6f6f;
   --clear-gray: #c4c4c4;
+  --rgba-main-gray: rgba(111, 111, 111, 0.7);
 }
 
 /* Nav */
 nav {
   display: flex;
-  background-color: var(--main-gray);
+  background-color: var(--rgba-main-gray);
   padding: 0.6rem;
 }
 
@@ -37,5 +38,5 @@ nav img {
 }
 
 nav input {
-    border-radius: 8px;
+  border-radius: 8px;
 }
