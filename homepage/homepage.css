@@ -4,9 +4,10 @@
 /* Variables */
 :root {
   --main-gray: #6f6f6f;
-  --clear-gray: #c4c4c4;
+  --clear-gray: rgb(196, 196, 196);
   --rgba-main-gray: rgba(111, 111, 111, 0.7);
   --text-med-size: 1rem;
+  --text-font-weight: 600;
 }
 
 /* Reset */
@@ -22,6 +23,8 @@ body {
   width: 100dvw;
   height: 100dvh;
   position: relative;
+  font-size: var(--text-med-size);
+  font-weight: var(--text-font-weight);
 }
 
 .bg-image {
@@ -61,17 +64,21 @@ span {
 }
 
 .searchBar input::placeholder {
-    font-size: 0.6rem;
-    color: #000000;
-    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
-    position: relative;
-    bottom: 3px;
-    left: 7px;
+  font-size: 0.6rem;
+  color: #000000;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+  position: relative;
+  bottom: 3px;
+  left: 7px;
 }
 
 .searchBar input {
   border-radius: 8px;
   border: none;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 22rem;
+  height: 40px;
+  margin-left: -11rem;
 }
 
 nav button {
@@ -81,4 +88,11 @@ nav button {
 
 .loop {
   width: 24px;
+}
+
+/* Links */
+.links {
+    display: flex;
+    gap: 5rem;
+    margin-right: 4rem;
 }
