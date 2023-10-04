@@ -24,8 +24,18 @@ body {
 /* Nav */
 nav {
   display: flex;
+  background-color: var(--main-gray);
+  padding: 0.6rem;
+}
+
+span {
+  color: #000;
 }
 
 nav img {
   width: 100px;
+}
+
+nav input {
+    border-radius: 8px;
 }
