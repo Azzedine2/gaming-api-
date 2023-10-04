@@ -40,16 +40,38 @@ nav {
   display: flex;
   background-color: var(--rgba-main-gray);
   padding: 0.6rem;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
+  box-shadow: -1px 2px 10px 5px rgba(0, 0, 0, 0.5);
 }
 
+/* Links */
 span {
   color: #000;
 }
 
 .logo-buttons {
   width: 70px;
+}
+
+/* Search Bar Elements */
+.searchBar {
+  display: flex;
+  align-items: center;
+}
+
+.searchBar input::placeholder {
+    font-size: 0.6rem;
+    color: #000000;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+    position: relative;
+    bottom: 3px;
+    left: 7px;
+}
+
+.searchBar input {
+  border-radius: 8px;
+  border: none;
 }
 
 nav button {
@@ -59,8 +81,4 @@ nav button {
 
 .loop {
   width: 24px;
-}
-
-nav input {
-  border-radius: 8px;
 }
