@@ -6,6 +6,7 @@
   --main-gray: #6f6f6f;
   --clear-gray: #c4c4c4;
   --rgba-main-gray: rgba(111, 111, 111, 0.7);
+  --text-med-size: 1rem;
 }
 
 /* Reset */
@@ -20,15 +21,18 @@
 body {
   width: 100dvw;
   height: 100dvh;
+  position: relative;
 }
 
 .bg-image {
-  background-image: url(../styles/assets/tales-of-symphonia-background-hd-1024x768-48572.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  opacity: 0.8;
+  object-fit: cover;
+  overflow: hidden;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0.3;
+  z-index: -2;
+  filter: brightness(0.7);
 }
 
 /* Nav */
@@ -36,14 +40,25 @@ nav {
   display: flex;
   background-color: var(--rgba-main-gray);
   padding: 0.6rem;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 span {
   color: #000;
 }
 
-nav img {
-  width: 100px;
+.logo-buttons {
+  width: 70px;
+}
+
+nav button {
+  background: none;
+  border: none;
+}
+
+.loop {
+  width: 24px;
 }
 
 nav input {
