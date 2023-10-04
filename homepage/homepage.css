@@ -4,7 +4,7 @@
 /* Variables */
 :root {
   --main-gray: #6f6f6f;
-  --clear-gray: rgb(196, 196, 196);
+  --clear-gray: #c4c4c4;
   --rgba-main-gray: rgba(111, 111, 111, 0.7);
   --text-med-size: 1rem;
   --text-font-weight: 600;
@@ -29,6 +29,7 @@ body {
 
 .bg-image {
   object-fit: cover;
+  background-size: cover;
   overflow: hidden;
   position: absolute;
   height: 100%;
@@ -49,7 +50,7 @@ nav {
 }
 
 /* Links */
-span {
+nav span {
   color: #000;
 }
 
@@ -69,7 +70,7 @@ span {
   text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
   position: relative;
   bottom: 3px;
-  left: 7px;
+  left: 19px;
 }
 
 .searchBar input {
@@ -78,7 +79,7 @@ span {
   background-color: rgba(255, 255, 255, 0.7);
   width: 22rem;
   height: 40px;
-  margin-left: -11rem;
+  margin-left: -6rem;
 }
 
 nav button {
@@ -92,7 +93,40 @@ nav button {
 
 /* Links */
 .links {
-    display: flex;
-    gap: 5rem;
-    margin-right: 4rem;
+  display: flex;
+  gap: 5rem;
+  margin-right: 4rem;
+}
+
+/* Main */
+
+/* Main Title */
+.main-title {
+}
+
+.main-title h1 {
+  margin: 2rem 1rem;
+  font-size: 1.3rem;
+}
+
+.fav-history-cards {
+  color: #ffffff;
+  font-size: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  display: grid;
+  height: 27rem;
+  width: 20rem;
+  border-radius: 49px;
+  margin-left: 37rem;
+  margin-top: -5rem;
+}
+
+/* Cards */
+.card,
+.card-history {
+  background-color: var(--clear-gray);
+  height: 95px;
+  width: 105px;
+  border-radius: 25px;
 }
