@@ -52,10 +52,24 @@ nav {
 /* Links */
 nav span {
   color: #000;
+  transition: ease-in-out 0.2s text-decoration;
+}
+
+nav span:hover {
+  color: #ffffff;
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+  text-decoration: underline;
 }
 
 .logo-buttons {
   width: 70px;
+}
+
+.logo-buttons:hover {
+  transition: ease-in-out 0.2s;
+  scale: 1.1;
+  cursor: pointer;
 }
 
 /* Search Bar Elements */
@@ -89,6 +103,7 @@ nav button {
 
 .loop {
   width: 24px;
+  margin-left: -43px;
 }
 
 /* Links */
@@ -120,6 +135,7 @@ nav button {
   border-radius: 49px;
   margin-left: 63%;
   margin-top: -5rem;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.38);
 }
 .fav-history-cards h1 {
   margin-top: 30px;
@@ -141,15 +157,38 @@ nav button {
 .card,
 .card-history {
   background-color: var(--clear-gray);
-  height: 115px;
-  width: 125px;
+  height: 135px;
+  width: 140px;
   border-radius: 25px;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.38);
+}
+
+.card:hover,
+.card-history:hover {
+  background-color: var(--clear-gray);
+  height: 140px;
+  width: 145px;
+  border-radius: 25px;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.58);
+  transition: ease-in-out 0.2s;
+  cursor: pointer;
 }
 
 .card-history {
+  width: 120px;
   height: 150px;
 }
 
+.card-history:hover {
+  width: 125px;
+  height: 155px;
+
+}
+
 .recommendations {
+  /* background-color: rebeccapurple; */
   display: flex;
+  gap: 3rem;
+  margin-left: 3%;
+  margin-top: -115px;
 }
