@@ -118,8 +118,23 @@ nav button {
   height: 27rem;
   width: 20rem;
   border-radius: 49px;
-  margin-left: 37rem;
+  margin-left: 63%;
   margin-top: -5rem;
+}
+.fav-history-cards h1 {
+  margin-top: 30px;
+}
+
+.fav {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+}
+
+.history {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 /* Cards */
@@ -129,4 +144,12 @@ nav button {
   height: 95px;
   width: 105px;
   border-radius: 25px;
+}
+
+.card-history {
+  height: 150px;
+}
+
+.recommendations {
+  display: flex;
 }
