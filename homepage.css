@@ -165,6 +165,8 @@ nav button {
   flex: 0 0 0;
   position: relative;
   top: 660px;
+  max-height: 140px;
+
 }
 
 .fav-history-cards {
