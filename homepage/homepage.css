@@ -53,6 +53,7 @@ nav {
 nav span {
   color: #000;
   transition: ease-in-out 0.2s text-decoration;
+  /* text-shadow: 2px 2px 0px rgba(127, 127, 127, 0.2); */
 }
 
 nav span:hover {
@@ -91,9 +92,9 @@ nav span:hover {
   border-radius: 8px;
   border: none;
   background-color: rgba(255, 255, 255, 0.7);
-  width: 22rem;
+  width: 580px;
   height: 40px;
-  margin-left: -6rem;
+  margin-left: -10%;
 }
 
 nav button {
@@ -116,12 +117,54 @@ nav button {
 /* Main */
 
 /* Main Title */
-.main-title {
+.main-all {
+  display: flex;
+  justify-content: space-between;
 }
 
 .main-title h1 {
   margin: 2rem 1rem;
   font-size: 1.3rem;
+}
+
+.game-all {
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 600px;
+  position: absolute;
+  left: 1.5%;
+}
+.game-all h1 {
+  position: relative;
+  top: 20px;
+}
+
+.game-all p {
+  display: block;
+  position: absolute;
+  left: 19rem;
+  top: 40px;
+  width: 46%;
+}
+
+.card-boxart {
+  width: 400px !important;
+  height: 400px !important;
+}
+
+.recommendations {
+  /* background-color: rebeccapurple; */
+  display: flex;
+  gap: 3rem;
+  /* margin-left: 3%; */
+  /* margin-top: -115px; */
+  /* bottom: 100px; */
+  margin: 0 2%;
+  flex: 0 0 0;
+  position: relative;
+  top: 660px;
 }
 
 .fav-history-cards {
@@ -130,12 +173,13 @@ nav button {
   background-color: rgba(0, 0, 0, 0.5);
   text-align: center;
   display: grid;
-  height: 27rem;
-  width: 20rem;
+  height: 900px;
+  width: 40%;
   border-radius: 49px;
-  margin-left: 63%;
-  margin-top: -5rem;
+  margin: -100px 3% 0 8%;
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.38);
+  flex: 0 1 auto;
+  /* margin-left: 63%; */
 }
 .fav-history-cards h1 {
   margin-top: 30px;
@@ -161,17 +205,33 @@ nav button {
   width: 140px;
   border-radius: 25px;
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.38);
+  background-size: 100px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.card:hover::before,
+.card-history:hover::before {
+  opacity: 0.7; /* Augmenter l'opacité en hover */
 }
 
 .card:hover,
 .card-history:hover {
   background-color: var(--clear-gray);
-  height: 140px;
-  width: 145px;
+  /* height: 140px;
+  width: 145px; */
   border-radius: 25px;
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.58);
   transition: ease-in-out 0.2s;
   cursor: pointer;
+  opacity: 0.7;
+}
+
+.card-fav:hover {
+  background-image: url(../styles/assets/add.png);
+  background-size: 100px;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .card-history {
@@ -180,15 +240,6 @@ nav button {
 }
 
 .card-history:hover {
-  width: 125px;
-  height: 155px;
-
-}
-
-.recommendations {
-  /* background-color: rebeccapurple; */
-  display: flex;
-  gap: 3rem;
-  margin-left: 3%;
-  margin-top: -115px;
+  /* width: 125px;
+  height: 155px; */
 }
