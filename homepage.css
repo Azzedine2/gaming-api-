@@ -228,7 +228,7 @@ nav button {
 }
 
 .card-fav:hover {
-  background-image: url(../styles/assets/add.png);
+  background-image: url(./styles/assets/add.png);
   background-size: 100px;
   background-repeat: no-repeat;
   background-position: center center;
