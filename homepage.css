@@ -166,7 +166,6 @@ nav button {
   position: relative;
   top: 660px;
   max-height: 140px;
-
 }
 
 .fav-history-cards {
@@ -241,7 +240,8 @@ nav button {
   height: 150px;
 }
 
+/* 
 .card-history:hover {
-  /* width: 125px;
-  height: 155px; */
-}
+  width: 125px;
+  height: 155px;
+} */
