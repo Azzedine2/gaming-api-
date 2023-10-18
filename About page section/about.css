@@ -131,22 +131,35 @@ nav button {
   /* background-color: aqua; */
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 50%;
   height: 600px;
   position: absolute;
   left: 1.5%;
+  text-align: center;
+  gap: 80px;
+  margin-left: 3%;
 }
+
+.to-hide {
+  content-visibility: hidden;
+}
+
 .game-all h1 {
   position: relative;
   top: 20px;
 }
 
+main {
+  margin-top: 85px;
+}
+
 .game-all p {
-  display: block;
+  /* display: block;
   position: absolute;
   left: 19rem;
   top: 40px;
-  width: 46%;
+  width: 46%; */
+  line-height: 1.5rem;
 }
 
 .card-boxart {
@@ -166,6 +179,7 @@ nav button {
   position: relative;
   top: 660px;
   max-height: 140px;
+  content-visibility: hidden;
 }
 
 .recommendation-title {

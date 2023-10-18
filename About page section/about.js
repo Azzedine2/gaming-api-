@@ -1,5 +1,5 @@
 // Import Function
-import { fetchGame, fetchGameAll } from "./js/api-call.js";
+import { fetchGame, fetchGameAll } from "../js/api-call.js";
 
 console.log(await fetchGame);
 
@@ -17,4 +17,4 @@ async function loadGame() {
     console.log(error);
   }
 }
-// loadGame();
+loadGame();

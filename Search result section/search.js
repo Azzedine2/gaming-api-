@@ -17,4 +17,4 @@ async function loadGame() {
     console.log(error);
   }
 }
-// loadGame();
+loadGame();

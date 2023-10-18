@@ -2,13 +2,18 @@
 const key = "a3ed24058c6960422612f376ca988d6bdc6d4a67";
 
 // URL GiantBomb API
-const urlGame = `https://www.giantbomb.com/api/game/3030-63/?api_key=${key}
+const urlGameByGuid = `https://www.giantbomb.com/api/game/3030-11237/?api_key=${key}
 &format=json`;
+
+const urlGameById = ``;
 
 const urlGameAll = `https://www.giantbomb.com/api/games/?api_key=${key}&format=json`;
 
 // Game GUID Exemple
 // 3030-63
+
+// Game Id Exemple
+// 26
 
 //  Classic Fetch
 // fetch(url)
@@ -19,21 +24,22 @@ const urlGameAll = `https://www.giantbomb.com/api/games/?api_key=${key}&format=j
 // Async Fetch
 async function fetchGame() {
   try {
-    const res = await fetch(urlGame);
+    const res = await fetch(urlGameByGuid);
     const json = await res.json();
     console.log(json);
-    console.log("Résultat de l'appel:", json);
+    console.log("Résultat de l'appel Game:", json);
     return json;
   } catch (error) {
     console.log("Droid not there:", error);
   }
 }
 
+
 async function fetchGameAll() {
   try {
     const res = await fetch(urlGameAll);
     const json = await res.json();
-    console.log("Résultat de l'appel:", json);
+    console.log("Résultat de l'appel Game ALL:", json);
     return json;
   } catch (error) {
     console.log("Droid not there:", error);

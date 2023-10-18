@@ -4,24 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- CSS Link -->
-    <link rel="stylesheet" href="./homepage.css" />
+    <link rel="stylesheet" href="./random.css" />
     <!-- Title -->
     <title>Gaming Api Homepage</title>
   </head>
   <body>
     <!-- Background Image -->
-    <img
-      class="bg-image"
-      src="./styles/assets/tales-of-symphonia-background-hd-1024x768-48572.jpg"
-    />
+    <img class="bg-image" src="" />
 
     <!-- Nav -->
     <nav>
-      <img
-        src="./styles/assets/logo-buttons.png"
-        alt="Buttons"
-        class="logo-buttons"
-      />
+      <a href="../index.html">
+        <img
+          src="../styles/assets/logo-buttons.png"
+          alt="Buttons"
+          class="logo-buttons"
+        />
+      </a>
       <div class="searchBar">
         <input
           type="search"
@@ -30,34 +29,36 @@
           placeholder="Search..."
         />
         <button class="submit">
-          <img src="./styles/assets/find.png" alt="loop-icon" class="loop" />
+          <img src="../styles/assets/find.png" alt="loop-icon" class="loop" />
         </button>
       </div>
 
       <div class="links">
-        <a href="./Random section/random.html">
+        <a href="./random.html">
           <span>Random Game</span>
         </a>
-        <a href="./About page section/about.html">
+        <a href="../About page section/about.html">
           <span>About</span>
         </a>
       </div>
     </nav>
     <!-- Main -->
     <div class="main-title">
-      <h1>Search for a game and add it to your Favorites !</h1>
+      <h1 id="game-title">Search for a game and add it to your Favorites !</h1>
     </div>
-    <!-- <div class="game-all">
-      <div class="card card-boxart"></div>
-      <p>
+    <div class="game-all">
+      <div class="card card-boxart" >
+        <img id="main-img" src=""class="card card-boxart">
+      </div>
+      <p id="description">
         <span>overview</span>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, iste,
         tempore veniam architecto expedita officiis tempora nobis labore, vitae
         explicabo quod. Deleniti, sint! Praesentium earum quasi a voluptatum
         accusamus et.
       </p>
-      <h1>game title</h1>
-    </div> -->
+      <h1 id="year">Year</h1>
+    </div>
     <div class="main-all">
       <!-- Recommendations -->
       <div class="recommendations">
@@ -86,6 +87,6 @@
       </div>
     </div>
     <!-- Scripts -->
-    <script type="module" src="./index.js"></script>
+    <script type="module" src="./random.js"></script>
   </body>
 </html>
