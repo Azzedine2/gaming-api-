@@ -38,7 +38,15 @@ async function RandomGameGenerator() {
   const titleUrl = gameData.results[randomGameIndex].name;
   const artBoxUrl = gameData.results[randomGameIndex].image.medium_url;
   const descriptionUrl = gameData.results[randomGameIndex].deck;
-  const yearUrl = gameData.results[randomGameIndex].original_release_date;
+  // const originalDateUrl = gameData.results[randomGameIndex].original_release_date
+  // const yearUrl = gameData.results[randomGameIndex].expected_release_year
+
+  let yearUrl;
+  if (gameData.results[randomGameIndex].expected_release_year !== null) {
+    yearUrl = gameData.results[randomGameIndex].expected_release_year;
+  } else {
+    yearUrl = gameData.results[randomGameIndex].original_release_date;
+  }
 
   // API Info To innerHtml Dom
   bgImg.src = bgImageUrl;
@@ -48,7 +56,7 @@ async function RandomGameGenerator() {
   year.innerHTML = yearUrl;
 
   // Similar Games
-  // Dom Variable
+  // Dom Variable for Recommendation
   const recommendationCard = document.querySelector(
     ".recommendation-title .card"
   );
