@@ -115,8 +115,8 @@ nav button {
 }
 
 /* Main */
-.main-title, .game-all {
-  animation: fadeIn 2s ease-in-out 50s;
+/* .main-title, .game-all {
+  animation: fadeIn 2s ease-in-out 5s;
 }
 
 @keyframes fadeIn {
@@ -126,7 +126,7 @@ nav button {
   100% {
     opacity: 100;
   }
-}
+} */
 
 /* Main Title */
 .main-all {
