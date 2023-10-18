@@ -41,6 +41,7 @@ async function RandomGameGenerator() {
   // const originalDateUrl = gameData.results[randomGameIndex].original_release_date
   // const yearUrl = gameData.results[randomGameIndex].expected_release_year
 
+  // Release Date if Statement
   let yearUrl;
   if (gameData.results[randomGameIndex].expected_release_year !== null) {
     yearUrl = gameData.results[randomGameIndex].expected_release_year;
@@ -48,7 +49,7 @@ async function RandomGameGenerator() {
     yearUrl = gameData.results[randomGameIndex].original_release_date;
   }
 
-  // API Info To innerHtml Dom
+  // API Infos To innerHtml Dom
   bgImg.src = bgImageUrl;
   gameTitle.innerHTML = titleUrl;
   artBox.src = artBoxUrl;

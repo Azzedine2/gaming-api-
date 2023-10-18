@@ -115,6 +115,18 @@ nav button {
 }
 
 /* Main */
+.main-title, .game-all {
+  animation: fadeIn 2s ease-in-out 50s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+}
 
 /* Main Title */
 .main-all {
