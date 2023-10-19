@@ -1,14 +1,21 @@
 // API Key
 const key = "a3ed24058c6960422612f376ca988d6bdc6d4a67";
 
+// Randomize for Guid
+const randomGameIndexForGuidSearch = Math.floor(Math.random() * 80000);
+
 // URL GiantBomb API
-const urlGameByGuid = `https://www.giantbomb.com/api/game/3030-11237/?api_key=${key}
+// const urlGameByGuid = `https://www.giantbomb.com/api/game/3030-11237/?api_key=${key}
+// &format=json`;
+
+const urlGameByGuid = `https://www.giantbomb.com/api/game/3030-${randomGameIndexForGuidSearch}/?api_key=${key}
 &format=json`;
 
 const urlGameById = ``;
 
 const urlGameAll = `https://www.giantbomb.com/api/games/?api_key=${key}&format=json`;
 
+console.log(urlGameByGuid);
 // Game GUID Exemple
 // 3030-63
 
