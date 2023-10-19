@@ -1,4 +1,4 @@
-import { fetchGame, fetchGameAll } from "./api-call";
+import { fetchGame, fetchGameAll } from "./api-call.js";
 
 // DOM Grabber
 const bgImg = document.querySelector(".bg-image");

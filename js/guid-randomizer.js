@@ -1,4 +1,4 @@
-import { fetchGame, fetchGameAll } from "./api-call";
+import { fetchGame } from "./api-call.js";
 
 // DOM Grabber
 const bgImg = document.querySelector(".bg-image");
@@ -38,10 +38,16 @@ async function RandomGameGeneratorGuid() {
   artBox.src = artBoxUrl;
   description.innerHTML = descriptionUrl;
   year.innerHTML = yearUrl;
+}
 
-  // WIP Similar Games
+// WIP Recommendations / Similar games
+async function recommendation() {
+  // Fetch Game All Into Variable
+  const gameData = await fetchGame();
+  console.log("Game Data log:", gameData);
+
   // Dom Variable for Recommendation
-  const recommendationCard = document.querySelector(
+  const recommendationCard = document.querySelectorAll(
     ".recommendation-title .card"
   );
 
@@ -49,14 +55,17 @@ async function RandomGameGeneratorGuid() {
   const similarGame = gameData.results.similar_games;
 
   // Checker
-  console.log("similar", similarGame);
+  console.log("Similar games:", similarGame[similarGame.length -1].name);
+
+  // For each
+  recommendationCard.forEach((game, i) => {
+    if (i < similarGame.length - 1) {
+      const game = similarGame[i];
+      recommendationCard.innerHTML = `
+      <h2>${game.name}</h2>
+      `;
+    }
+  });
 }
 
-// // WIP Recommendations
-// async function recommendation() {
-//   // Fetch Game All Into Variable
-//   const gameData = await fetchGameAll();
-//   console.log(gameData);
-// }
-
-export { RandomGameGeneratorGuid };
+export { RandomGameGeneratorGuid, recommendation };

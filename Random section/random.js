@@ -1,7 +1,7 @@
 // Import Function
 import { fetchGame, fetchGameAll } from "../js/api-call.js";
 import { RandomGameGeneratorAll } from "../js/all-games-rando.js";
-import { RandomGameGeneratorGuid } from "../js/guid-randomizer.js";
+import { RandomGameGeneratorGuid, recommendation } from "../js/guid-randomizer.js";
 
 // console.log(await fetchGame);
 
@@ -11,6 +11,7 @@ async function loadGame() {
     // Function Call
     // RandomGameGeneratorAll();
     RandomGameGeneratorGuid();
+    recommendation()
 
     // Confirmation / Checker
     console.log("Load Game success");

@@ -10,9 +10,7 @@ const randomGameIndexForGuidSearch = Math.floor(Math.random() * 80000);
 
 const urlGameByGuid = `https://www.giantbomb.com/api/game/3030-${randomGameIndexForGuidSearch}/?api_key=${key}
 &format=json`;
-
 const urlGameById = ``;
-
 const urlGameAll = `https://www.giantbomb.com/api/games/?api_key=${key}&format=json`;
 
 console.log(urlGameByGuid);
