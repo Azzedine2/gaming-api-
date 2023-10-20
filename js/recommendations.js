@@ -12,15 +12,12 @@ async function recommendation() {
     ".recommendation-title .card"
   );
 
+  const recoTitle = document.querySelector(".recommendation-title");
+
   // Similar Game Variable
   const similarGame = gameData.results.similar_games;
 
-  recommendationCard.forEach((card, index) => {
-    if (index < similarGame.length) {
-      card.innerHTML = similarGame[index].name;
-      console.log("cards:", card)
-    }
-  });
+  recoTitle.innerHTML = similarGame[Math.floor(Math.random() * 4)].name;
 
   // Checker
   console.log(
@@ -30,4 +27,3 @@ async function recommendation() {
 }
 
 export { recommendation };
-
