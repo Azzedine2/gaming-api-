@@ -21,8 +21,10 @@ async function RandomGameGeneratorGuid() {
   const titleUrl = gameData.results.name;
   const artBoxUrl = gameData.results.image.medium_url;
   const descriptionUrl = gameData.results.deck;
+  const gameLink = gameData.results.site_detail_url;
   // const originalDateUrl = gameData.results.original_release_date
   // const yearUrl = gameData.results.expected_release_year
+  console.log("game url link :", gameLink);
 
   // Release Date if Statement
   let yearUrl;
@@ -55,17 +57,24 @@ async function recommendation() {
   const similarGame = gameData.results.similar_games;
 
   // Checker
-  console.log("Similar games:", similarGame[similarGame.length -1].name);
+  console.log(
+    "Similar games:",
+    similarGame[Math.floor(Math.random() * 4)].name
+  );
 
-  // For each
-  recommendationCard.forEach((game, i) => {
-    if (i < similarGame.length - 1) {
-      const game = similarGame[i];
-      recommendationCard.innerHTML = `
-      <h2>${game.name}</h2>
-      `;
-    }
-  });
+  // // For each Try
+  // recommendationCards.forEach((recommendationCard, i) => {
+  //   if (i < similarGames.length) {
+  //     const game = similarGames[i];
+  //     recommendationCard.innerHTML = `
+  //       <h2>${game.name}</h2>
+  //       <p>Description: ${
+  //         game.description || "Aucune description disponible."
+  //       }</p>
+  //       <p>Il n'y a pas d'image disponible pour ce jeu.</p>
+  //     `;
+  //   }
+  // });
 }
 
 export { RandomGameGeneratorGuid, recommendation };
