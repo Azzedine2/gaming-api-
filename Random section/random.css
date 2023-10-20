@@ -56,6 +56,11 @@ nav span {
   /* text-shadow: 2px 2px 0px rgba(127, 127, 127, 0.2); */
 }
 
+.link-random {
+  color: #ffffff;
+
+}
+
 nav span:hover {
   color: #ffffff;
   cursor: pointer;
