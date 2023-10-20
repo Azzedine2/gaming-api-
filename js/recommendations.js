@@ -12,18 +12,15 @@ async function recommendation() {
     ".recommendation-title .card"
   );
 
-  const recoTitle = document.querySelector(".recommendation-title");
+  const recoTitleTest = document.querySelector(".recommendation-title");
 
   // Similar Game Variable
   const similarGame = gameData.results.similar_games;
 
-  recoTitle.innerHTML = similarGame[Math.floor(Math.random() * 4)].name;
+  recoTitleTest.innerHTML = similarGame[Math.floor(Math.random() * 4)].name;
 
   // Checker
-  console.log(
-    "Similar games:",
-    similarGame[Math.floor(Math.random() * 4)].name
-  );
+  console.log("Similar games:", similarGame);
 }
 
 export { recommendation };
