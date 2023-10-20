@@ -14,12 +14,15 @@ async function RandomGameGeneratorAll() {
 
   // Random Index Formula to Variable
   const randomGameIndex = Math.floor(Math.random() * gameData.results.length);
+  const randomGameIndexForGuidSearch = Math.floor(Math.random() * 80000);
 
   // Content Url to Variable
   const bgImageUrl = gameData.results[randomGameIndex].image.screen_large_url;
   const titleUrl = gameData.results[randomGameIndex].name;
   const artBoxUrl = gameData.results[randomGameIndex].image.medium_url;
   const descriptionUrl = gameData.results[randomGameIndex].deck;
+  // const originalDateUrl = gameData.results[randomGameIndex].original_release_date
+  // const yearUrl = gameData.results[randomGameIndex].expected_release_year
 
   // Release Date if Statement
   let yearUrl;
@@ -35,6 +38,15 @@ async function RandomGameGeneratorAll() {
   artBox.src = artBoxUrl;
   description.innerHTML = descriptionUrl;
   year.innerHTML = yearUrl;
+
+  // Similar Games
+  // Dom Variable for Recommendation
+  // const recommendationCard = document.querySelector(
+  //   ".recommendation-title .card"
+  // );
+
+  // Similar Game Variable
+  // const similarGame = fetchGameAll.results.similarGame;
 
   // Checker
   console.log(yearUrl);
