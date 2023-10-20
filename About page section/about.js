@@ -1,7 +1,7 @@
 // Import Function
-import { fetchGame, fetchGameAll } from "../js/api-call.js";
+import { fetchGameSpecifiq } from "../js/api-call.js";
 
-console.log(await fetchGame);
+console.log(await fetchGameSpecifiq);
 
 // DOM
 const bgImg = document.querySelector(".bg-image");
@@ -9,7 +9,7 @@ const bgImg = document.querySelector(".bg-image");
 // Async Game Loader Function
 async function loadGame() {
   try {
-    const gameData = await fetchGame();
+    const gameData = await fetchGameSpecifiq();
     const imageUrl = gameData.results.image.screen_large_url;
     bgImg.src = imageUrl;
     console.log("Load Game success");

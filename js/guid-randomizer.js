@@ -6,6 +6,7 @@ const gameTitle = document.querySelector("#game-title");
 const artBox = document.querySelector("#main-img");
 const description = document.querySelector("#description");
 const year = document.querySelector("#year");
+const gameApiLink = document.querySelector("#game-api-link")
 
 // Random Game Guid info Generator
 async function RandomGameGeneratorGuid() {
@@ -32,7 +33,10 @@ async function RandomGameGeneratorGuid() {
   // API Infos To innerHtml Dom
   bgImg.src = bgImageUrl;
   gameTitle.innerHTML = titleUrl;
+
   artBox.src = artBoxUrl;
+  gameApiLink.href = gameLink;
+
   description.innerHTML = descriptionUrl;
   year.innerHTML = yearUrl;
 }

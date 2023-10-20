@@ -15,6 +15,8 @@ async function recommendation() {
   // Similar Game Variable
   const similarGame = gameData.results.similar_games;
 
+  recommendationCard.textContent = similarGame
+
   // Checker
   console.log(
     "Similar games:",
