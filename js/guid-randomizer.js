@@ -1,5 +1,5 @@
 import { fetchGame } from "./api-call.js";
-import { addToHistory } from "./WIPaddToHistory.js";
+import { addToHistory } from "./addToHistory.js";
 
 // DOM Grabber
 const bgImg = document.querySelector(".bg-image");
