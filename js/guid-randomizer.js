@@ -1,4 +1,5 @@
 import { fetchGame } from "./api-call.js";
+import { addToHistory } from "./WIPaddToHistory.js";
 
 // DOM Grabber
 const bgImg = document.querySelector(".bg-image");
@@ -6,7 +7,7 @@ const gameTitle = document.querySelector("#game-title");
 const artBox = document.querySelector("#main-img");
 const description = document.querySelector("#description");
 const year = document.querySelector("#year");
-const gameApiLink = document.querySelector("#game-api-link")
+const gameApiLink = document.querySelector("#game-api-link");
 
 // Random Game Guid info Generator
 async function RandomGameGeneratorGuid() {
@@ -35,6 +36,9 @@ async function RandomGameGeneratorGuid() {
   gameTitle.innerHTML = titleUrl;
 
   artBox.src = artBoxUrl;
+  // History artBox Add Function Call
+  addToHistory(artBox);
+
   gameApiLink.href = gameLink;
 
   description.innerHTML = descriptionUrl;
@@ -42,4 +46,3 @@ async function RandomGameGeneratorGuid() {
 }
 
 export { RandomGameGeneratorGuid };
-
