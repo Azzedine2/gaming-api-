@@ -62,3 +62,34 @@ async function fetchGameAll() {
 }
 
 export { fetchGame, fetchGameAll, fetchGameSpecifiq };
+
+// Images Tag List From the API
+
+// icon_url
+// : 
+// "https://www.giantbomb.com/a/uploads/square_avatar/12/124786/1713185-desperados___wanted_dead_or_alive.jpg"
+// image_tags
+// : 
+// "All Images,Box Art"
+// medium_url
+// : 
+// "https://www.giantbomb.com/a/uploads/scale_medium/12/124786/1713185-desperados___wanted_dead_or_alive.jpg"
+// original_url
+// : 
+// "https://www.giantbomb.com/a/uploads/original/12/124786/1713185-desperados___wanted_dead_or_alive.jpg"
+// screen_large_url
+// : 
+// "https://www.giantbomb.com/a/uploads/screen_kubrick/12/124786/1713185-desperados___wanted_dead_or_alive.jpg"
+// screen_url
+// : 
+// "https://www.giantbomb.com/a/uploads/screen_medium/12/124786/1713185-desperados___wanted_dead_or_alive.jpg"
+// small_url
+// : 
+// "https://www.giantbomb.com/a/uploads/scale_small/12/124786/1713185-desperados___wanted_dead_or_alive.jpg"
+// super_url
+// : 
+// "https://www.giantbomb.com/a/uploads/scale_large/12/124786/1713185-desperados___wanted_dead_or_alive.jpg"
+// thumb_url
+// : 
+// "https://www.giantbomb.com/a/uploads/scale_avatar/12/124786/1713185-desperados___wanted_dead_or_alive.jpg"
+// tiny_url

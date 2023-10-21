@@ -232,6 +232,10 @@ nav button {
   background-position: center center;
 }
 
+.card {
+  overflow: hidden;
+}
+
 .card:hover::before,
 .card-history:hover::before {
   opacity: 0.7; /* Augmenter l'opacité en hover */
