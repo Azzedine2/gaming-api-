@@ -43,11 +43,6 @@ async function recommendation() {
     console.log("Résultat de l'appel Game:", json);
     console.log(json.results.image.medium_url);
 
-    // const newImg = document.createElement("img")
-    // newImg.src = json.results.image.medium_url
-    // newImg.style.maxWidth = "100%"
-    // recommendationCard.appendChild(newImg)
-
     // Adding to Card 1
     recommendationCard1.style.backgroundImage = `url(${json.results.image.medium_url})`;
     recommendationCard1.style.backgroundSize = "cover";
