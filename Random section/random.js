@@ -7,7 +7,7 @@ import { recommendation } from "../js/recommendations.js";
 // Async Game Loader Function
 async function loadGame() {
   try {
-    // Function Call
+    // Function Calls: Random Call with History Adder and Recommendation
     RandomGameGeneratorGuid();
     recommendation();
 

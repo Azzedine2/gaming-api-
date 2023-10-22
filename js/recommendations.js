@@ -33,8 +33,7 @@ async function recommendation() {
   //   recommendationCard.innerHTML = similarGame[Math.floor(Math.random() * 4)]?.id;
 
   // New Call Based on Similar Game
-  const urlGameByGuid = `https://www.giantbomb.com/api/game/3030-${similarGame[0].id}/?api_key=${key}
-&format=json`;
+  const urlGameByGuid = `https://www.giantbomb.com/api/game/3030-${similarGame[0].id}/?api_key=${key}&format=json`;
   try {
     const res = await fetch(urlGameByGuid);
     const json = await res.json();
@@ -53,7 +52,7 @@ async function recommendation() {
     recommendationCard1.style.backgroundImage = `url(${json.results.image.medium_url})`;
     recommendationCard1.style.backgroundSize = "cover";
 
-    //Checker   
+    //Checker
     console.log(
       "test du lien du site ligne 55: ",
       json.results.site_detail_url

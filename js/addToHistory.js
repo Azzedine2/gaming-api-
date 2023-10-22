@@ -5,7 +5,7 @@ const key = "a3ed24058c6960422612f376ca988d6bdc6d4a67";
 // 1. Empty Array to Store History And DOM Address
 const historyCard = document.querySelectorAll(".card-history");
 
-// Another way
+// Declaring the array without assigning anything
 let gameHistory;
 
 // 2. Function Length Checker
@@ -44,6 +44,7 @@ function displayHistory() {
     console.log("element of loop :", element);
     historyCard[i].style.backgroundSize = "cover";
     historyCard[i].addEventListener("click", async function () {
+
       // TO clean
       /*****************************************/
       const urlGameByGuid = `https://www.giantbomb.com/api/game/3030-${gameHistory[i].gameId}/?api_key=${key}
