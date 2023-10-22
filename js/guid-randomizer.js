@@ -20,6 +20,7 @@ async function RandomGameGeneratorGuid() {
   const artBoxUrl = gameData.results.image.medium_url;
   const descriptionUrl = gameData.results.deck;
   const gameLink = gameData.results.site_detail_url;
+  const gameId = gameData.results.id
 
   console.log("game url link :", gameLink);
 
@@ -36,13 +37,13 @@ async function RandomGameGeneratorGuid() {
   gameTitle.innerHTML = titleUrl;
 
   artBox.src = artBoxUrl;
-  // History artBox Add Function Call
-  addToHistory(artBox);
+  // History artBox Function Call
+  addToHistory(artBoxUrl, gameId);  
 
   gameApiLink.href = gameLink;
 
   description.innerHTML = descriptionUrl;
   year.innerHTML = yearUrl;
 }
-
+  
 export { RandomGameGeneratorGuid };
