@@ -1,10 +1,10 @@
-import { domFiller } from "./filler-function.js";
+import { domFiller } from "./domFiller-function.js";
 import { clickSend } from "./clickSend.js";
+import { key } from "./apiKey.js";
+import { recommendation } from "./recommendations.js";
 
+// Search Game with Dom Filler and Click Send
 function searchGame() {
-  // API Key
-  const key = "a3ed24058c6960422612f376ca988d6bdc6d4a67";
-
   // DOM Elements
   const submitButton = document.querySelector(".submit");
 
@@ -31,6 +31,7 @@ function searchGame() {
       const gameUrl = `https://www.giantbomb.com/api/game/${gameData}/?api_key=${key}&format=json`;
       const urlGameId = `https://www.giantbomb.com/api/game/3030-${gameSearchId}/?api_key=${key}&format=json`;
 
+      recommendation();
       try {
         const res = await fetch(urlGameId);
         const json = await res.json();

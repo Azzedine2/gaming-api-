@@ -1,5 +1,5 @@
 import { fetchGame } from "./api-call.js";
-import { domFiller } from "./filler-function.js";
+import { domFiller } from "./domFiller-function.js";
 
 // Random Game Guid info Generator
 async function RandomGameGeneratorGuid() {

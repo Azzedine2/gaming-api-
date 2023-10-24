@@ -3,6 +3,8 @@ import { fetchGameSpecifiq } from "../js/api-call.js";
 import { recommendation } from "../js/recommendations.js";
 import { searchGame } from "../js/searchFunction.js";
 import { addToHistory } from "../js/addToHistory.js";
+import { initializeSearch } from "../js/initializeSearch.js";
+
 
 console.log(await fetchGameSpecifiq);
 
@@ -16,7 +18,7 @@ async function loadGame() {
     const imageUrl = gameData.results.image.screen_large_url;
     bgImg.src = imageUrl;
     console.log("About Page Wallpaper Load Success: ", imageUrl);
-
+    
     // Function Calls for Reco, Search and History
     recommendation();
     searchGame();
@@ -26,3 +28,5 @@ async function loadGame() {
   }
 }
 loadGame();
+
+// initializeSearch();

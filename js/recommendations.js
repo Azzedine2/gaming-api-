@@ -1,8 +1,6 @@
 import { fetchGame } from "./api-call.js";
-import { RandomGameGeneratorGuid } from "./guid-randomizer.js";
-
-// API Key
-const key = "a3ed24058c6960422612f376ca988d6bdc6d4a67";
+import { RandomGameGeneratorGuid } from "./RandomGameGeneratorGuid.js";
+import { key } from "./apiKey.js";
 
 // WIP Function Recommendations / Similar games
 async function recommendation() {
@@ -11,7 +9,9 @@ async function recommendation() {
   console.log("Game Data log:", gameData);
 
   // Dom Variable for Recommendation
-  const recommendationCard1 = document.querySelector(".recommendations .card5");
+  const recommendationCard = document.querySelectorAll(
+    ".recommendations .card"
+  );
 
   const recoTitleTest = document.querySelector(".recommendation-title");
 
@@ -22,8 +22,11 @@ async function recommendation() {
   console.log("Similar games:", similarGame);
 
   if (similarGame === null) {
-    // Error Message if no Similar Games
+    // Error Message and Hidden if no Similar Games Found
     recoTitleTest.innerHTML = "No similar games";
+    recommendationCard.forEach((card) => {
+      card.style.visibility = "hidden";
+    });
     console.log("No similar games");
 
     return;
@@ -32,31 +35,70 @@ async function recommendation() {
   //   recoTitleTest.innerHTML = similarGame[Math.floor(Math.random() * 4)]?.id;
   //   recommendationCard.innerHTML = similarGame[Math.floor(Math.random() * 4)]?.id;
 
-  // New Call Based on Similar Game
-  const urlGameByGuid = `https://www.giantbomb.com/api/game/3030-${similarGame[0].id}/?api_key=${key}&format=json`;
-  try {
-    const res = await fetch(urlGameByGuid);
-    const json = await res.json();
+  // Max Cards by Similar Array Length Try
+  // const maxCard = 4;
 
-    // Checker
-    console.log(json);
-    console.log("Résultat de l'appel Game:", json);
-    console.log(json.results.image.medium_url);
+  // for (let i = 0; i < similarGame.length; i++) {
+  //   const game = similarGame[i];
+  //   if (i < maxCard) {
+  //     recommendationCard[i].style.visibility = "visible";
+  //   } else {
+  //     recommendationCard[i].style.visibility = "hidden";
+  //   }
+  // }
 
-    // Adding to Card 1
-    recommendationCard1.style.backgroundImage = `url(${json.results.image.medium_url})`;
-    recommendationCard1.style.backgroundSize = "cover";
+  // Promises. all Test *****************************************************************
+  // Array to store Promises
+  const recommendationPromises = similarGame.slice(0, 5).map((game, index) => {
+    return fetchSemilarGameDetails(game.id, recommendationCard[index]);
+  });
 
-    //Checker
-    console.log(
-      "test du lien du site ligne 55: ",
-      json.results.site_detail_url
-    );
+  // Execute Promises
+  await Promise.all(recommendationPromises);
 
-    return json;
-  } catch (error) {
-    console.log("Droid not there:", error);
+  async function fetchSemilarGameDetails(gameId, card) {
+    const urlGameByGuid = `https://www.giantbomb.com/api/game/3030-${gameId}/?api_key=${key}&format=json`;
+
+    try {
+      const res = await fetch(urlGameByGuid);
+      const json = await res.json();
+
+      // Checker
+      console.log(json.results.image.medium_url);
+
+      // Adding to the card
+      card.style.backgroundImage = `url(${json.results.image.medium_url})`;
+      card.style.backgroundSize = "cover";
+
+      // Checker
+      console.log();
+    } catch (error) {
+      console.log("Error from Recommendation Catch:", error);
+    }
   }
+
+  //********************************************************************** */
+
+  // New Call Based on Similar Game
+  // const urlGameByGuid = `https://www.giantbomb.com/api/game/3030-${similarGame[0].id}/?api_key=${key}&format=json`;
+  // try {
+  //   const res = await fetch(urlGameByGuid);
+  //   const json = await res.json();
+
+  //   // Checker
+  //   console.log(json.results.image.medium_url);
+
+  //   // Adding to Card 1
+  //   recommendationCard.style.backgroundImage = `url(${json.results.image.medium_url})`;
+  //   recommendationCard.style.backgroundSize = "cover";
+
+  //   //Checker
+  //   console.log();
+
+  //   return json;
+  // } catch (error) {
+  //   console.log("Error from Recommendation Catch:", error);
+  // }
 }
 
 export { recommendation };

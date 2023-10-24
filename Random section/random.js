@@ -1,7 +1,8 @@
 // Import Function
-import { RandomGameGeneratorGuid } from "../js/guid-randomizer.js";
+import { RandomGameGeneratorGuid } from "../js/RandomGameGeneratorGuid.js";
 import { recommendation } from "../js/recommendations.js";
 import { searchGame } from "../js/searchFunction.js";
+import { initializeSearch } from "../js/initializeSearch.js";
 
 // console.log(await fetchGame);
 
@@ -10,8 +11,8 @@ async function loadRandomGame() {
   try {
     // Function Calls: Random Call with History Adder and Recommendation
     RandomGameGeneratorGuid();
-    recommendation();
     searchGame();
+    recommendation();
 
     // Confirmation / Checker
     console.log("Load Game success");
@@ -20,3 +21,5 @@ async function loadRandomGame() {
   }
 }
 loadRandomGame();
+
+// initializeSearch();

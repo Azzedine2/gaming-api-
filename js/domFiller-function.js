@@ -1,7 +1,7 @@
 // Import
 import { addToHistory } from "./addToHistory.js";
 
-// Dom Filler Function
+// Dom Filler Function with Add History
 function domFiller(gameData) {
   // DOM Grabber
   const bgImg = document.querySelector(".bg-image");
