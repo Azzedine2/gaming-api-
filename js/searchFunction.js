@@ -1,4 +1,5 @@
 import { domFiller } from "./filler-function.js";
+import { clickSend } from "./clickSend.js";
 
 function searchGame() {
   // API Key
@@ -25,7 +26,7 @@ function searchGame() {
       // Checker
       console.log("Résultat de Search By Game:", gameData);
 
-      const gameSearchId = gameData.id
+      const gameSearchId = gameData.id;
 
       const gameUrl = `https://www.giantbomb.com/api/game/${gameData}/?api_key=${key}&format=json`;
       const urlGameId = `https://www.giantbomb.com/api/game/3030-${gameSearchId}/?api_key=${key}&format=json`;
@@ -43,13 +44,7 @@ function searchGame() {
     }
   });
 
-  // Use enter to send the data
-  const searchTerm = document.querySelector("#search");
-  searchTerm.addEventListener("keyup", function (e) {
-    if (e.key === "Enter") {
-      submitButton.click();
-    }
-  });
+  clickSend();
 }
 
 export { searchGame };
