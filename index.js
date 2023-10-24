@@ -1,7 +1,8 @@
-// Import Function
+// Import
 import { searchGame } from "./js/searchFunction.js";
+import { recommendation } from "../js/recommendations.js";
+import { addToHistory } from "../js/addToHistory.js";
 
-console.log(searchGame);
-
-const submitButton = document.querySelector(".submit");
-submitButton.addEventListener("click", searchGame());
+searchGame();
+recommendation();   
+addToHistory();

@@ -136,6 +136,8 @@ nav button {
   height: 600px;
   position: absolute;
   left: 1.5%;
+  /* Not show until game is searched */
+  content-visibility: hidden;
 }
 .game-all h1 {
   position: relative;

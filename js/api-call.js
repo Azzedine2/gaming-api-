@@ -7,14 +7,13 @@ const randomGameIndexForGuidSearch = Math.floor(Math.random() * 80000);
 // Call by Searches Needs
 const searchTerm = document.querySelector("#search").value;
 
-// URL GiantBomb API Tweaks
 // Array of Games for Specifiq Random Calls in About Page
-// Game GUID Exemple
 // 3030-63, TOS: -21237, MGS 2: -22993, MGS2 S: -21654, FF 10: -11237,
 const randomGameValues = [21237, 22993, 21654, 11237];
 const randomGameIndex = Math.floor(Math.random() * randomGameValues.length);
 const randomNumberIndex = randomGameValues[randomGameIndex];
 
+// URL GiantBomb API Tweaks
 // About Page Api Call
 const urlGameByGuidAbout = `https://www.giantbomb.com/api/game/3030-${randomNumberIndex}/?api_key=${key}
 &format=json`;
@@ -29,7 +28,7 @@ const urlGameBySearch = `https://www.giantbomb.com/api/search/?api_key=${key}&fo
 // All Games Api Call
 const urlGameAll = `https://www.giantbomb.com/api/games/?api_key=${key}&format=json`;
 
-console.log(urlGameByGuid);
+console.log();
 
 // Async Fetch One Random Game
 async function fetchGame() {
