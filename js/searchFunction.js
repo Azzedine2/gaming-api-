@@ -20,16 +20,24 @@ function searchGame() {
     try {
       const res = await fetch(urlGameBySearch);
       const gameDataTry = await res.json();
-      const gameData = gameDataTry.results[0].guid;
+      const gameData = gameDataTry.results[0];
 
       // Checker
       console.log("Résultat de Search By Game:", gameData);
 
+      const gameSearchId = gameData.id
+
       const gameUrl = `https://www.giantbomb.com/api/game/${gameData}/?api_key=${key}&format=json`;
+      const urlGameId = `https://www.giantbomb.com/api/game/3030-${gameSearchId}/?api_key=${key}&format=json`;
 
-      domFiller(gameUrl);
-
-      return
+      try {
+        const res = await fetch(urlGameId);
+        const json = await res.json();
+        console.log("Résultat de Search By Game 2:", json);
+        domFiller(json);
+      } catch (error) {
+        console.log("error from search Game Function: ", error);
+      }
     } catch (error) {
       console.log("error from search Game Function: ", error);
     }

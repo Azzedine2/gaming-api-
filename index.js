@@ -8,9 +8,9 @@ async function initializeSearch() {
   const gameAll = document.querySelector(".game-all");
 
   if (searchResult === true) {
-    recommendation();
-    addToHistory();
     gameAll.style.visibility = "visible";
+    addToHistory();
+    recommendation();
   }
   addToHistory();
 }

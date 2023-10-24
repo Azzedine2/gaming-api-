@@ -139,6 +139,7 @@ nav button {
   /* Not show until game is searched */
   visibility: hidden;
 }
+
 .game-all h1 {
   position: relative;
   top: 20px;
