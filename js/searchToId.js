@@ -39,6 +39,7 @@ async function searchToId() {
           gameLink.href = "#"; // Lien vide pour éviter la navigation
           gameLink.innerHTML = `<h1>${name}</h1>`;
           gameLink.style.fontSize = "0.6rem";
+          gameLink.style.color = "black";
           console.log("game link", gameLink);
 
           gameLink.addEventListener("click", async (e) => {
