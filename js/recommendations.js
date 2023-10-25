@@ -1,6 +1,7 @@
 import { fetchGame } from "./api-call.js";
 import { RandomGameGeneratorGuid } from "./RandomGameGeneratorGuid.js";
 import { key } from "./apiKey.js";
+import { searchGame } from "./searchFunction.js";
 
 // WIP Function Recommendations / Similar games
 async function recommendation() {
@@ -57,7 +58,9 @@ async function recommendation() {
       // Adding to the card
       card.style.backgroundImage = `url(${json.results.image.medium_url})`;
       card.style.backgroundSize = "cover";
-
+      // ************************
+      recoSearch(gameId);
+      //*********************** */
       // Checker
       console.log();
     } catch (error) {
@@ -69,3 +72,30 @@ async function recommendation() {
 }
 
 export { recommendation };
+
+// Notes to try links within reco
+// .site_url_details
+// createEl => a
+// card.href = `https://www.giantbomb.com/api/game/3030-${gameId}`
+
+// function recommendationLink() {
+//   j
+// }
+
+async function recoSearch(gameId) {
+  // Utilisez gameId pour afficher les informations du jeu associé
+  const urlGameId = `https://www.giantbomb.com/api/game/3030-${gameId}/?api_key=${key}&format=json`;
+  try {
+    const res = await fetch(urlGameId);
+    const json = await res.json();
+
+    console.log("Résultat de Search By Game 2:", json);
+    card.onclick = () {
+
+      domFiller(json);
+      recommendation();
+    }
+  } catch (error) {
+    console.log("error from search Game Function: ", error);
+  }
+}
