@@ -34,7 +34,26 @@ console.log();
 // Async Fetch One Random Game
 async function fetchGame() {
   try {
+    // Random Page Api Call
+    const urlGameByGuid = `https://www.giantbomb.com/api/game/3030-${randomGameIndexForGuidSearch}/?api_key=${key}&format=json`;
+
     const res = await fetch(urlGameByGuid);
+    const json = await res.json();
+    console.log(json);
+    console.log("Search By Random Game Results: ", json);
+    return json;
+  } catch (error) {
+    console.log("Droid not there:", error);
+  }
+}
+
+// Async Fetch One Define Game
+async function fetchDefineGame(gameId) {
+  try {
+    // Random Page Api Call
+    const UrlDefineGame = `https://www.giantbomb.com/api/game/3030-${gameId}/?api_key=${key}&format=json`;
+
+    const res = await fetch(UrlDefineGame);
     const json = await res.json();
     console.log(json);
     console.log("Search By Random Game Results: ", json);
@@ -58,8 +77,11 @@ async function fetchGameSpecifiq() {
 }
 
 // Async Fetch Game Search
-async function fetchGameSearch() {
+async function fetchGameSearch(searchTerm) {
   try {
+    // Url for Search
+    const urlGameBySearch = `https://www.giantbomb.com/api/search/?api_key=${key}&format=json&query=${searchTerm}`;
+    // Search Page Api Call
     const res = await fetch(urlGameBySearch);
     const json = await res.json();
     console.log(json);
@@ -82,7 +104,7 @@ async function fetchGameAll() {
   }
 }
 
-export { fetchGame, fetchGameAll, fetchGameSpecifiq, fetchGameSearch };
+export { fetchGame, fetchGameAll, fetchGameSpecifiq, fetchGameSearch, fetchDefineGame };
 
 // Images Tag List From the API
 

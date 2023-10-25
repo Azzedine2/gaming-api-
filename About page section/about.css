@@ -81,6 +81,7 @@ nav span:hover {
 .searchBar {
   display: flex;
   align-items: center;
+  visibility: hidden;
 }
 
 .searchBar input::placeholder {

@@ -1,7 +1,7 @@
 // Import Function
 import { fetchGameSpecifiq } from "../js/api-call.js";
 import { recommendation } from "../js/recommendation.js";
-import { searchGame } from "../js/searchFunction.js";
+import { searchGame } from "../js/BackUp/searchFunction.js";
 import { addToHistory } from "../js/addToHistory.js";
 import { initializeSearch } from "../js/initializeSearch.js";
 

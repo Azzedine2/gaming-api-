@@ -65,7 +65,7 @@ function domFillerForSearch(gameData) {
   const gameId = gameData.results[0].id;
 
   console.log("game url link :", gameLink);
-
+  
   // Release Date if Statement
   let yearUrl;
   if (gameData.results[0].expected_release_year !== null) {
@@ -73,7 +73,8 @@ function domFillerForSearch(gameData) {
   } else {
     yearUrl = gameData.results[0].original_release_date;
   }
-
+  console.log("game year :", yearUrl);
+  
   // API Infos To innerHtml Dom
   bgImg.src = bgImageUrl;
   gameTitle.innerHTML = titleUrl;

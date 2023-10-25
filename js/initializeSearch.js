@@ -1,7 +1,8 @@
 // Import
-import { searchGame } from "./searchFunction.js";
+import { searchGame } from "./BackUp/searchFunction.js";
 import { recommendation } from "./recommendation.js";
 import { addToHistory } from "./addToHistory.js";
+import { searchToId } from "./searchToId.js";
 import { clickSend } from "./clickSend.js";
 import { domFiller } from "./domFiller-function.js";
 
@@ -12,7 +13,7 @@ function initializeSearch() {
   const gameAll = document.querySelector(".game-all");
 
   // Function Call with Onclick Condition
-  searchGame();
+  searchToId();
   submitButton.onclick = () => {
     gameAll.style.visibility = "visible";
     addToHistory();
