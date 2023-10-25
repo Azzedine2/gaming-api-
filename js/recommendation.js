@@ -3,7 +3,6 @@ import { key } from "./apiKey.js";
 import { RandomGameGeneratorGuid } from "./RandomGameGeneratorGuid.js";
 import { searchGame } from "./searchFunction.js";
 
-
 // ****************** Function Recommendations ************************************
 
 // Function Recommendation
@@ -72,12 +71,12 @@ async function recommendation() {
 
 // *************** Alternative for Search Games ************************************
 
-
 // Function Recommendations for Searched Games
 async function recoForSearchGame(gameData) {
   // Fetch Game All Into Variable
   // const gameData = await fetchGame();
-  console.log("recoForSearchGame log:", gameData);
+  const gameId = gameData.results[0].guid;
+  console.log("recoForSearchGame log:", gameId);
 
   // Dom Variable for Recommendation
   const recommendationCard = document.querySelectorAll(
@@ -86,8 +85,12 @@ async function recoForSearchGame(gameData) {
 
   const recoTitleTest = document.querySelector(".recommendation-title");
 
+// /////////////////////////////////////////////
+
+// ////////////////////////////////
+
   // Similar Game Variable
-  const similarGame = gameData.results[0].similar_games;
+  const similarGame = gameData.results.similar_games;
 
   // Checker
   console.log("Similar games:", similarGame);
@@ -116,7 +119,7 @@ async function recoForSearchGame(gameData) {
   await Promise.all(recommendationPromises);
 
   async function fetchSemilarGameDetails(gameId, card) {
-    const urlGameByGuid = `https://www.giantbomb.com/api/game/3030-${gameId}/?api_key=${key}&format=json`;
+    const urlGameByGuid = `https://www.giantbomb.com/api/game/${gameId}/?api_key=${key}&format=json`;
 
     try {
       const res = await fetch(urlGameByGuid);
