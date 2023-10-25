@@ -35,18 +35,6 @@ async function recommendation() {
   //   recoTitleTest.innerHTML = similarGame[Math.floor(Math.random() * 4)]?.id;
   //   recommendationCard.innerHTML = similarGame[Math.floor(Math.random() * 4)]?.id;
 
-  // Max Cards by Similar Array Length Try
-  // const maxCard = 4;
-
-  // for (let i = 0; i < similarGame.length; i++) {
-  //   const game = similarGame[i];
-  //   if (i < maxCard) {
-  //     recommendationCard[i].style.visibility = "visible";
-  //   } else {
-  //     recommendationCard[i].style.visibility = "hidden";
-  //   }
-  // }
-
   // Promises. all Test *****************************************************************
   // Array to store Promises
   const recommendationPromises = similarGame.slice(0, 5).map((game, index) => {
@@ -78,27 +66,6 @@ async function recommendation() {
   }
 
   //********************************************************************** */
-
-  // New Call Based on Similar Game
-  // const urlGameByGuid = `https://www.giantbomb.com/api/game/3030-${similarGame[0].id}/?api_key=${key}&format=json`;
-  // try {
-  //   const res = await fetch(urlGameByGuid);
-  //   const json = await res.json();
-
-  //   // Checker
-  //   console.log(json.results.image.medium_url);
-
-  //   // Adding to Card 1
-  //   recommendationCard.style.backgroundImage = `url(${json.results.image.medium_url})`;
-  //   recommendationCard.style.backgroundSize = "cover";
-
-  //   //Checker
-  //   console.log();
-
-  //   return json;
-  // } catch (error) {
-  //   console.log("Error from Recommendation Catch:", error);
-  // }
 }
 
 export { recommendation };
