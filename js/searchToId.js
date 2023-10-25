@@ -4,6 +4,7 @@ import { fetchGameSearch } from "./api-call.js";
 import { clickSend } from "./clickSend.js";
 import { fetchDefineGame } from "./api-call.js";
 import { domFiller, domFillerForSearch } from "./domFiller-function.js";
+import { recoForSearchGame } from "./recommendation.js";
 
 async function searchToId() {
   // DOM Elements
@@ -24,32 +25,34 @@ async function searchToId() {
       console.log("Game Data: ", gameSearchResults);
 
       // Condition Test
-      const gameArray = document.querySelector("main");
+      const gameDescription = document.querySelector("#description");
       if (Array.isArray(gameSearchResults)) {
-        // gameArray.innerHTML = "";
-
         // For Loop
+        gameDescription.innerHTML = "";
         for (let i = 0; i < gameSearchResults.length; i++) {
-            const name = gameSearchResults[i].name;
-            const gameId = gameSearchResults[i].id;
-          
-            // Créez un lien qui appelle domFiller avec l'ID du jeu
-            const gameLink = document.createElement("a");
-            gameLink.href = "#"; // Lien vide pour éviter la navigation
-            gameLink.innerHTML = `<h1>${name}</h1>`;
-            console.log("game link", gameLink)
-          
-            // Ajoutez un gestionnaire d'événements au lien
-            gameLink.addEventListener("click", async (e) => {
-              e.preventDefault(); // Empêche la navigation par défaut
-               const gameNameSearchResult = await fetchGameSearch(name); 
-               console.log("fetching gamelink", gameNameSearchResult)
-               domFillerForSearch(gameNameSearchResult)// Vous pouvez passer l'ID du jeu à la fonction de domFiller
-            });
-          
-            // Ajoutez le lien au conteneur principal (gameArray)
-            gameArray.appendChild(gameLink);
-          }
+          // Ajoutez un gestionnaire d'événements au lien
+          const name = gameSearchResults[i].name;
+          const gameId = gameSearchResults[i].id;
+
+          // Créez un lien qui appelle domFiller avec l'ID du jeu
+          const gameLink = document.createElement("a");
+          gameLink.href = "#"; // Lien vide pour éviter la navigation
+          gameLink.innerHTML = `<h1>${name}</h1>`;
+          gameLink.style.fontSize = "0.6rem";
+          console.log("game link", gameLink);
+
+          gameLink.addEventListener("click", async (e) => {
+            e.preventDefault(); // Empêche la navigation par défaut
+            const gameNameSearchResult = await fetchGameSearch(name);
+            console.log("fetching gamelink", gameNameSearchResult);
+            domFillerForSearch(gameNameSearchResult); // Vous pouvez passer l'ID du jeu à la fonction de domFiller
+            //    recoForSearchGame(gameNameSearchResult)
+          });
+
+          // Ajoutez le lien au conteneur principal (gameDescription)
+          // gameDescription.append(gameLink);
+          gameDescription.append(gameLink);
+        }
       }
     } catch (error) {
       console.log("error from search To ID: ", error);
