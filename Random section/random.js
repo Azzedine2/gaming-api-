@@ -1,6 +1,6 @@
 // Import Function
 import { RandomGameGeneratorGuid } from "../js/RandomGameGeneratorGuid.js";
-import { recommendation } from "../js/recommendations.js";
+import { recommendation } from "../js/recommendation.js";
 import { searchGame } from "../js/searchFunction.js";
 import { initializeSearch } from "../js/initializeSearch.js";
 

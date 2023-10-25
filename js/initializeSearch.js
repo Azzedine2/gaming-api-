@@ -1,6 +1,6 @@
 // Import
 import { searchGame } from "./searchFunction.js";
-import { recommendation } from "./recommendations.js";
+import { recommendation } from "./recommendation.js";
 import { addToHistory } from "./addToHistory.js";
 import { clickSend } from "./clickSend.js";
 import { domFiller } from "./domFiller-function.js";

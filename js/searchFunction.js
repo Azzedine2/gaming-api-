@@ -1,7 +1,9 @@
 import { domFiller } from "./domFiller-function.js";
 import { clickSend } from "./clickSend.js";
 import { key } from "./apiKey.js";
-import { recommendation } from "./recommendations.js";
+import { recommendation } from "./recommendation.js";
+import { domFillerForSearch } from "./domFiller-function.js";
+import { recoForSearchGame } from "./recommendation.js";
 
 // Search Game with Dom Filler and Click Send
 function searchGame() {
@@ -20,26 +22,31 @@ function searchGame() {
     // Try / Catch Fetch
     try {
       const res = await fetch(urlGameBySearch);
-      const gameDataTry = await res.json();
-      const gameData = gameDataTry.results[0];
+      const json = await res.json();
+      const gameData = json;
+      //   const gameData = json.results[0]; For Old Version
 
       // Checker
       console.log("Résultat de Search By Game:", gameData);
 
-      const gameSearchId = gameData.id;
+      // Function Call: Dom Filler for Search and Recommendation
+      domFillerForSearch(gameData);
+      recoForSearchGame(gameData);
 
-      const gameUrl = `https://www.giantbomb.com/api/game/${gameData}/?api_key=${key}&format=json`;
-      const urlGameId = `https://www.giantbomb.com/api/game/3030-${gameSearchId}/?api_key=${key}&format=json`;
-
-      recommendation();
-      try {
-        const res = await fetch(urlGameId);
-        const json = await res.json();
-        console.log("Résultat de Search By Game 2:", json);
-        domFiller(json);
-      } catch (error) {
-        console.log("error from search Game Function: ", error);
-      }
+      // ****************************************Old Version*******************************************************/
+      //   const gameSearchId = gameData.id;
+      //   const gameUrl = `https://www.giantbomb.com/api/game/${gameData}/?api_key=${key}&format=json`;
+      //   const urlGameId = `https://www.giantbomb.com/api/game/3030-${gameSearchId}/?api_key=${key}&format=json`;
+      //   domFiller(gameData);
+      //   try {
+      //     const res = await fetch(urlGameId);
+      //     const json = await res.json();
+      //     console.log("Résultat de Search By Game 2:", json);
+      //     domFiller(json);
+      //   } catch (error) {
+      //     console.log("error from search Game Function: ", error);
+      //   }
+      //******************************************************************************************************** */
     } catch (error) {
       console.log("error from search Game Function: ", error);
     }
