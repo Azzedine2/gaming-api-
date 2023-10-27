@@ -18,6 +18,7 @@ function domFiller(gameData) {
   const descriptionUrl = gameData.results.deck;
   const gameLink = gameData.results.site_detail_url;
   const gameId = gameData.results.id;
+  const guid = gameData.results.guid
 
   console.log("game url link :", gameLink);
 
@@ -30,7 +31,7 @@ function domFiller(gameData) {
   }
 
   // Video Availaible If Statement
-  if (gameVideo) {
+  if (null) {
     setTimeout(() => {
       const gameVideo = gameData.results.videos[0].site_details_url;
       console.log("Video Result: ", gameVideo)

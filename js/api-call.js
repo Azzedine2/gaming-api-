@@ -104,6 +104,16 @@ async function fetchGameAll() {
   }
 }
 
+// Fetch Video Call
+async function fetchVideo(guid) {
+  const urlFetchVideo = `https://www.giantbomb.com/api/video/?api_key=${key}&guid=3030-20755&format=json`
+  try {
+    
+  } catch (error) {
+    
+  }
+}
+
 export { fetchGame, fetchGameAll, fetchGameSpecifiq, fetchGameSearch, fetchDefineGame };
 
 // Images Tag List From the API
