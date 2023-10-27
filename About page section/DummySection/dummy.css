@@ -1,0 +1,273 @@
+/* Font Family */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;800&display=swap");
+
+/* Variables */
+:root {
+  --main-gray: #6f6f6f;
+  --clear-gray: #c4c4c4;
+  --rgba-main-gray: rgba(111, 111, 111, 0.7);
+  --text-med-size: 1rem;
+  --text-font-weight: 600;
+}
+
+/* Reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  text-decoration: none;
+}
+
+body {
+  width: 100dvw;
+  height: 100dvh;
+  position: relative;
+  font-size: var(--text-med-size);
+  font-weight: var(--text-font-weight);
+}
+
+.bg-image {
+  object-fit: cover;
+  background-size: cover;
+  overflow: hidden;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0.3;
+  z-index: -2;
+  filter: brightness(0.7);
+}
+
+/* Nav */
+nav {
+  display: flex;
+  background-color: var(--rgba-main-gray);
+  padding: 0.6rem;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: -1px 2px 10px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Links */
+nav span {
+  color: #000;
+  transition: ease-in-out 0.2s text-decoration;
+  /* text-shadow: 2px 2px 0px rgba(127, 127, 127, 0.2); */
+}
+
+.link-random {
+  color: #ffffff;
+}
+
+nav span:hover {
+  color: #ffffff;
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+  text-decoration: underline;
+}
+
+.logo-buttons {
+  width: 70px;
+}
+
+.logo-buttons:hover {
+  transition: ease-in-out 0.2s;
+  scale: 1.1;
+  cursor: pointer;
+}
+
+/* Search Bar Elements */
+.searchBar {
+  display: flex;
+  align-items: center;
+}
+
+.searchBar input::placeholder {
+  font-size: 0.6rem;
+  color: #000000;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+  position: relative;
+  bottom: 3px;
+  left: 19px;
+}
+
+.searchBar input {
+  border-radius: 8px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 580px;
+  height: 40px;
+  margin-left: -10%;
+}
+
+nav button {
+  background: none;
+  border: none;
+}
+
+.loop {
+  width: 24px;
+  margin-left: -43px;
+  cursor: pointer;
+}
+
+/* Links */
+.links {
+  display: flex;
+  gap: 5rem;
+  margin-right: 4rem;
+}
+
+/* Main */
+/* .main-title, .game-all {
+  animation: fadeIn 2s ease-in-out 5s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+} */
+
+/* Main Title */
+.main-all {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-title h1 {
+  margin: 2rem 1rem;
+  font-size: 1.3rem;
+}
+
+.game-all {
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 600px;
+  position: absolute;
+  left: 1.5%;
+}
+.game-all h1 {
+  position: relative;
+  top: 20px;
+}
+
+.game-all p {
+  display: block;
+  position: absolute;
+  left: 19rem;
+  top: 40px;
+  width: 46%;
+}
+
+.card-boxart {
+  width: 400px !important;
+  height: 400px !important;
+}
+
+.recommendations {
+  /* background-color: rebeccapurple; */
+  display: flex;
+  gap: 3rem;
+  /* margin-left: 3%; */
+  /* margin-top: -115px; */
+  /* bottom: 100px; */
+  margin: 0 2%;
+  flex: 0 0 0;
+  position: relative;
+  top: 660px;
+  max-height: 140px;
+}
+
+.recommendation-title {
+  position: absolute;
+  top: -80px;
+}
+
+.fav-history-cards {
+  color: #ffffff;
+  font-size: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  display: grid;
+  height: 900px;
+  width: 40%;
+  border-radius: 49px;
+  margin: -100px 3% 0 8%;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.38);
+  flex: 0 1 auto;
+  /* margin-left: 63%; */
+}
+.fav-history-cards h1 {
+  margin-top: 30px;
+}
+
+.fav {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+}
+
+.history {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Cards */
+.card,
+.card-history {
+  background-color: var(--clear-gray);
+  height: 135px;
+  width: 140px;
+  border-radius: 25px;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.38);
+  background-size: 100px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.card {
+  overflow: hidden;
+}
+
+.card:hover::before,
+.card-history:hover::before {
+  opacity: 0.7; /* Augmenter l'opacité en hover */
+}
+
+.card:hover,
+.card-history:hover {
+  background-color: var(--clear-gray);
+  /* height: 140px;
+  width: 145px; */
+  border-radius: 25px;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.58);
+  transition: ease-in-out 0.2s;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.card-fav:hover {
+  background-image: url(../../styles/assets/add.png);
+  background-size: 100px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.card-history {
+  width: 120px;
+  height: 150px;
+}
+
+/* 
+.card-history:hover {
+  width: 125px;
+  height: 155px;
+} */

@@ -19,12 +19,9 @@ function domFiller(gameData) {
   const artBoxUrl = gameData.results.image.medium_url;
   const descriptionUrl = gameData.results.deck;
   const gameLink = gameData.results.site_detail_url;
-  const gameVideoCheck = gameData.results.videos[0].id;
   const gameId = gameData.results.id;
-  const guid = gameData.results.guid;
-
-  console.log("game video link :", gameVideoCheck);
-
+  
+  
   // Release Date if Statement
   let yearUrl;
   if (gameData.results.expected_release_year !== null) {
@@ -32,18 +29,21 @@ function domFiller(gameData) {
   } else {
     yearUrl = gameData.results.original_release_date;
   }
-
-  // Video Availaible If Statement
-  if (gameVideoCheck) {
-    setTimeout(() => {
-      const gameVideo = fetchVideo(guid);
-      console.log("Video Result: ", gameVideo);
-      bgImg.createEl = "video";
-      bgImg.src = gameVideo;
-      gameVideo.autoplay = true;
-      gameVideo.loop = true;
-    }, 1000);
-  }
+  
+  // // Video Availaible If Statement
+  // const gameVideoCheck = gameData.results.videos[0].id;
+  // const guid = gameData.results.guid;
+  // console.log("game video link :", gameVideoCheck);
+  // if (gameVideoCheck) {
+  //   setTimeout(() => {
+  //     const gameVideo = fetchVideo(guid);
+  //     console.log("Video Result: ", gameVideo);
+  //     bgImg.createEl = "video";
+  //     bgImg.src = gameVideo;
+  //     gameVideo.autoplay = true;
+  //     gameVideo.loop = true;
+  //   }, 1000);
+  // }
 
   // API Infos To innerHtml Dom
   bgImg.src = bgImageUrl;
