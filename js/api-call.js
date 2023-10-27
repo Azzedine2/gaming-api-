@@ -106,7 +106,7 @@ async function fetchGameAll() {
 
 // Fetch Video Call
 async function fetchVideo(guid) {
-  const urlFetchVideo = `https://www.giantbomb.com/api/video/?api_key=${key}&guid=${guid}&format=json&embed_video`;
+  const urlFetchVideo = `https://www.giantbomb.com/api/video/?api_key=${key}&guid=${guid}&format=json&hd_url`;
   try {
     const res = fetch(urlFetchVideo);
     const jsonVideo = res.json();

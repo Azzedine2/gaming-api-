@@ -1,6 +1,7 @@
 // Import
 import { addToHistory } from "./addToHistory.js";
 import { fetchVideo } from "./api-call.js";
+import { key } from "./apiKey.js";
 
 // Dom Filler Function with Add History
 function domFiller(gameData) {
@@ -18,10 +19,11 @@ function domFiller(gameData) {
   const artBoxUrl = gameData.results.image.medium_url;
   const descriptionUrl = gameData.results.deck;
   const gameLink = gameData.results.site_detail_url;
+  const gameVideoCheck = gameData.results.videos[0].id;
   const gameId = gameData.results.id;
-  const guid = gameData.results.guid
+  const guid = gameData.results.guid;
 
-  console.log("game url link :", gameLink);
+  console.log("game video link :", gameVideoCheck);
 
   // Release Date if Statement
   let yearUrl;
@@ -32,10 +34,10 @@ function domFiller(gameData) {
   }
 
   // Video Availaible If Statement
-  if (null) {
+  if (gameVideoCheck) {
     setTimeout(() => {
-      const gameVideo = gameData.results.videos[0].site_details_url;
-      console.log("Video Result: ", gameVideo)
+      const gameVideo = fetchVideo(guid);
+      console.log("Video Result: ", gameVideo);
       bgImg.createEl = "video";
       bgImg.src = gameVideo;
       gameVideo.autoplay = true;
