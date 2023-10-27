@@ -106,15 +106,24 @@ async function fetchGameAll() {
 
 // Fetch Video Call
 async function fetchVideo(guid) {
-  const urlFetchVideo = `https://www.giantbomb.com/api/video/?api_key=${key}&guid=3030-20755&format=json`
+  const urlFetchVideo = `https://www.giantbomb.com/api/video/?api_key=${key}&guid=${guid}&format=json&embed_video`;
   try {
-    
+    const res = fetch(urlFetchVideo);
+    const jsonVideo = res.json();
+    return jsonVideo;
   } catch (error) {
-    
+    console.log("Video Problem: ", error);
   }
 }
 
-export { fetchGame, fetchGameAll, fetchGameSpecifiq, fetchGameSearch, fetchDefineGame };
+export {
+  fetchGame,
+  fetchGameAll,
+  fetchGameSpecifiq,
+  fetchGameSearch,
+  fetchDefineGame,
+  fetchVideo,
+};
 
 // Images Tag List From the API
 

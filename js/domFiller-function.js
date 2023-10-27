@@ -1,5 +1,6 @@
 // Import
 import { addToHistory } from "./addToHistory.js";
+import { fetchVideo } from "./api-call.js";
 
 // Dom Filler Function with Add History
 function domFiller(gameData) {
