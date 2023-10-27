@@ -18,6 +18,8 @@ function domFiller(gameData) {
   const descriptionUrl = gameData.results.deck;
   const gameLink = gameData.results.site_detail_url;
   const gameId = gameData.results.id;
+  const gameVideo = gameData.results.videos[0];
+  console.log("Video Result: ", gameVideo)
 
   console.log("game url link :", gameLink);
 
@@ -27,6 +29,17 @@ function domFiller(gameData) {
     yearUrl = gameData.results.expected_release_year;
   } else {
     yearUrl = gameData.results.original_release_date;
+  }
+
+  // Video Availaible If Statement
+  if (gameVideo) {
+    setTimeout(() => {
+      console.log("Video Result: ", gameVideo)
+      bgImg.createEl = "video";
+      bgImg.src = gameVideo;
+      gameVideo.autoplay = true;
+      gameVideo.loop = true;
+    }, 1000);
   }
 
   // API Infos To innerHtml Dom
@@ -65,7 +78,7 @@ function domFillerForSearch(gameData) {
   const gameId = gameData.results[0].id;
 
   console.log("game url link :", gameLink);
-  
+
   // Release Date if Statement
   let yearUrl;
   if (gameData.results[0].expected_release_year !== null) {
@@ -74,7 +87,12 @@ function domFillerForSearch(gameData) {
     yearUrl = gameData.results[0].original_release_date;
   }
   console.log("game year :", yearUrl);
-  
+
+  // Not a Game if Statement
+  if (yearUrl == null) {
+    year.style.visibility = "hidden";
+  }
+
   // API Infos To innerHtml Dom
   bgImg.src = bgImageUrl;
   gameTitle.innerHTML = titleUrl;

@@ -1,9 +1,9 @@
 // Import
-import { key } from "./apiKey.js";
 import { fetchGameSearch } from "./api-call.js";
 import { clickSend } from "./clickSend.js";
-import { fetchDefineGame } from "./api-call.js";
 import { domFiller, domFillerForSearch } from "./domFiller-function.js";
+import { key } from "./apiKey.js";
+import { fetchDefineGame } from "./api-call.js";
 import { recoForSearchGame } from "./recommendation.js";
 
 async function searchToId() {
@@ -46,12 +46,11 @@ async function searchToId() {
             e.preventDefault(); // Empêche la navigation par défaut
             const gameNameSearchResult = await fetchGameSearch(name);
             console.log("fetching gamelink", gameNameSearchResult);
-            domFillerForSearch(gameNameSearchResult); // Vous pouvez passer l'ID du jeu à la fonction de domFiller
+            domFillerForSearch(gameNameSearchResult);
             //    recoForSearchGame(gameNameSearchResult)
           });
 
           // Ajoutez le lien au conteneur principal (gameDescription)
-          // gameDescription.append(gameLink);
           gameDescription.append(gameLink);
         }
       }

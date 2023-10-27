@@ -1,8 +1,8 @@
 // Import
-import { searchGame } from "./BackUp/searchFunction.js";
 import { recommendation } from "./recommendation.js";
 import { addToHistory } from "./addToHistory.js";
 import { searchToId } from "./searchToId.js";
+import { searchGame } from "./BackUp/searchFunction.js";
 import { clickSend } from "./clickSend.js";
 import { domFiller } from "./domFiller-function.js";
 
