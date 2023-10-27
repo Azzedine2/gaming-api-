@@ -2,6 +2,7 @@
 import { recommendation } from "./recommendation.js";
 import { addToHistory } from "./addToHistory.js";
 import { searchToId } from "./searchToId.js";
+import { addHiddenClass, RmvHiddenClass } from "./hiddenCss.js";
 import { searchGame } from "./BackUp/searchFunction.js";
 import { clickSend } from "./clickSend.js";
 import { domFiller } from "./domFiller-function.js";
@@ -15,7 +16,8 @@ function initializeSearch() {
   // Function Call with Onclick Condition
   searchToId();
   submitButton.onclick = () => {
-    gameAll.style.visibility = "visible";
+    // gameAll.style.visibility = "visible";
+    RmvHiddenClass(gameAll)
     addToHistory();
     recommendation();
   };
@@ -24,3 +26,14 @@ function initializeSearch() {
 }
 
 export { initializeSearch };
+
+
+
+          // // Condition to hide and Show Boxart if Empty
+          // //   const artBoxLink = document.querySelector("#game-api-link");
+          // const artBox = document.querySelector("#main-img");
+          // if (artBox.src === "") {
+          //   addHiddenClass(artBox);
+          // } else {
+          //   RmvHiddenClass(artBox);
+          // }

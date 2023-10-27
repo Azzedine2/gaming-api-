@@ -27,6 +27,10 @@ body {
   font-weight: var(--text-font-weight);
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 .bg-image {
   object-fit: cover;
   background-size: cover;

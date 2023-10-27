@@ -1,6 +1,7 @@
 // Import
 import { fetchGameSearch } from "./api-call.js";
 import { clickSend } from "./clickSend.js";
+import { addHiddenClass, RmvHiddenClass } from "./hiddenCss.js";
 import { domFiller, domFillerForSearch } from "./domFiller-function.js";
 import { key } from "./apiKey.js";
 import { fetchDefineGame } from "./api-call.js";
@@ -27,6 +28,13 @@ async function searchToId() {
       // Condition Test
       const gameDescription = document.querySelector("#description");
       if (Array.isArray(gameSearchResults)) {
+        // Hidden the Empty Elements
+        const boxArt = document.querySelector(".card-boxart");
+        addHiddenClass(boxArt);
+
+        const year = document.querySelector("#year");
+        addHiddenClass(year);
+
         // For Loop
         gameDescription.innerHTML = "";
         for (let i = 0; i < gameSearchResults.length; i++) {
@@ -34,19 +42,33 @@ async function searchToId() {
           const name = gameSearchResults[i].name;
           const gameId = gameSearchResults[i].id;
 
-          // Créez un lien qui appelle domFiller avec l'ID du jeu
+          // A Element Creation for Links to Be Shown
           const gameLink = document.createElement("a");
           gameLink.href = "#"; // Lien vide pour éviter la navigation
           gameLink.innerHTML = `<h1>${name}</h1>`;
           gameLink.style.fontSize = "0.6rem";
           gameLink.style.color = "black";
+          gameLink.style.transition = "color 0.2s ease-in-out";
+
+          // Mouse Over and Out for the Links
+          gameLink.addEventListener("mouseover", () => {
+            gameLink.style.color = "white";
+          });
+          gameLink.addEventListener("mouseout", () => {
+            gameLink.style.color = "black";
+          });
           console.log("game link", gameLink);
 
+          // On Click DomFiller, Reco And Visibility Changer
           gameLink.addEventListener("click", async (e) => {
             e.preventDefault(); // Empêche la navigation par défaut
             const gameNameSearchResult = await fetchGameSearch(name);
             console.log("fetching gamelink", gameNameSearchResult);
             domFillerForSearch(gameNameSearchResult);
+            RmvHiddenClass(boxArt);
+            if (year.innerHTML !== "undefined") {
+              RmvHiddenClass(year);
+            }
             //    recoForSearchGame(gameNameSearchResult)
           });
 

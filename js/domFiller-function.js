@@ -29,21 +29,6 @@ function domFiller(gameData) {
   } else {
     yearUrl = gameData.results.original_release_date;
   }
-  
-  // // Video Availaible If Statement
-  // const gameVideoCheck = gameData.results.videos[0].id;
-  // const guid = gameData.results.guid;
-  // console.log("game video link :", gameVideoCheck);
-  // if (gameVideoCheck) {
-  //   setTimeout(() => {
-  //     const gameVideo = fetchVideo(guid);
-  //     console.log("Video Result: ", gameVideo);
-  //     bgImg.createEl = "video";
-  //     bgImg.src = gameVideo;
-  //     gameVideo.autoplay = true;
-  //     gameVideo.loop = true;
-  //   }, 1000);
-  // }
 
   // API Infos To innerHtml Dom
   bgImg.src = bgImageUrl;
