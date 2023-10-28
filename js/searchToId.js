@@ -79,9 +79,11 @@ async function searchToId() {
             }
 
             // Recommendation not Hiding after First search Solution ?
-            if (domFillerForSearch(gameNameSearchResult) !== true) {
-              addHiddenClass(recommendationBox);
-            }
+
+            addHiddenClass(recommendationBox);
+
+            console.log(domFillerForSearch(gameNameSearchResult) !== true);
+            console.log(domFillerForSearch(gameNameSearchResult));
 
             //    recoForSearchGame(gameNameSearchResult)
           });

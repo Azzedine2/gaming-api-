@@ -1,3 +1,4 @@
+import { domFiller } from "./domFiller-function.js";
 // API Key
 const key = "a3ed24058c6960422612f376ca988d6bdc6d4a67";
 
@@ -44,7 +45,6 @@ function displayHistory() {
     console.log("element of loop :", element);
     historyCard[i].style.backgroundSize = "cover";
     historyCard[i].addEventListener("click", async function () {
-
       // TO clean
       /*****************************************/
       const urlGameByGuid = `https://www.giantbomb.com/api/game/3030-${gameHistory[i].gameId}/?api_key=${key}
@@ -54,60 +54,12 @@ function displayHistory() {
         const json = await res.json();
         const gameData = json;
 
+        domFiller(gameData, true);
         // Checker
-        console.log(json);
-        console.log("inside the handler msg:", json);
-        console.log(json.results.image.medium_url);
-
-        //Checker
-        console.log(
-          "test du lien du site ligne 55: ",
-          json.results.site_detail_url
-        );
+        console.log("Display History error:", gameData);
 
         /*****************************************/
-
-        // // DOM Grabber
-        // const bgImg = document.querySelector(".bg-image");
-        // const gameTitle = document.querySelector("#game-title");
-        // const artBox = document.querySelector("#main-img");
-        // const description = document.querySelector("#description");
-        // const year = document.querySelector("#year");
-        // const gameApiLink = document.querySelector("#game-api-link");
-
-        // // Content Url to Variable
-        // const bgImageUrl = gameData.results.image.screen_large_url;
-        // const titleUrl = gameData.results.name;
-        // const artBoxUrl = gameData.results.image.medium_url;
-        // const descriptionUrl = gameData.results.deck;
-        // const gameLink = gameData.results.site_detail_url;
-        // const gameId = gameData.results.id;
-
-        // console.log("game url link :", gameLink);
-
-        // // Release Date if Statement
-        // let yearUrl;
-        // if (gameData.results.expected_release_year !== null) {
-        //   yearUrl = gameData.results.expected_release_year;
-        // } else {
-        //   yearUrl = gameData.results.original_release_date;
-        // }
-
-        // // API Infos To innerHtml Dom
-        // bgImg.src = bgImageUrl;
-        // gameTitle.innerHTML = titleUrl;
-
-        // artBox.src = artBoxUrl;
-        // // History artBox Function Call
-        // addToHistory(artBoxUrl, gameId);
-
-        // gameApiLink.href = gameLink;
-
-        // description.innerHTML = descriptionUrl;
-        // year.innerHTML = yearUrl;
-
-        /*****************************************/
-        return json;
+        // return json;
       } catch (error) {
         console.log("Droid not there:", error);
       }

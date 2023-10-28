@@ -4,7 +4,7 @@ import { fetchVideo } from "./api-call.js";
 import { key } from "./apiKey.js";
 
 // Dom Filler Function with Add History
-function domFiller(gameData) {
+function domFiller(gameData, clickFromHistory = false) {
   // DOM Grabber
   const bgImg = document.querySelector(".bg-image");
   const gameTitle = document.querySelector("#game-title");
@@ -20,8 +20,7 @@ function domFiller(gameData) {
   const descriptionUrl = gameData.results.deck;
   const gameLink = gameData.results.site_detail_url;
   const gameId = gameData.results.id;
-  
-  
+
   // Release Date if Statement
   let yearUrl;
   if (gameData.results.expected_release_year !== null) {
@@ -37,7 +36,9 @@ function domFiller(gameData) {
   artBox.src = artBoxUrl;
 
   // Add to History artBox Function Call
-  addToHistory(artBoxUrl, gameId);
+  if (clickFromHistory === false) {
+    addToHistory(artBoxUrl, gameId);
+  }
 
   gameApiLink.href = gameLink;
 
@@ -48,7 +49,7 @@ function domFiller(gameData) {
 export { domFiller };
 
 // Dom Filler Function with Add History
-function domFillerForSearch(gameData) {
+function domFillerForSearch(gameData, clickFromHistory = false) {
   // DOM Grabber
   const bgImg = document.querySelector(".bg-image");
   const gameTitle = document.querySelector("#game-title");
@@ -88,7 +89,9 @@ function domFillerForSearch(gameData) {
   artBox.src = artBoxUrl;
 
   // Add to History artBox Function Call
-  addToHistory(artBoxUrl, gameId);
+  if (clickFromHistory === false) {
+    addToHistory(artBoxUrl, gameId);
+  }
 
   gameApiLink.href = gameLink;
 
