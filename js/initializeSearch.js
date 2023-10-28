@@ -26,14 +26,3 @@ function initializeSearch() {
 }
 
 export { initializeSearch };
-
-
-
-          // // Condition to hide and Show Boxart if Empty
-          // //   const artBoxLink = document.querySelector("#game-api-link");
-          // const artBox = document.querySelector("#main-img");
-          // if (artBox.src === "") {
-          //   addHiddenClass(artBox);
-          // } else {
-          //   RmvHiddenClass(artBox);
-          // }

@@ -8,3 +8,4 @@ import { searchToId } from "../js/searchToId.js";
 searchToId();
 RandomGameGeneratorGuid();
 recommendation();
+// initializeSearch()

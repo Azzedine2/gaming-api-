@@ -26,7 +26,6 @@ async function searchToId() {
       console.log("Game Data: ", gameSearchResults);
 
       // Condition Test
-      const gameDescription = document.querySelector("#description");
       if (Array.isArray(gameSearchResults)) {
         // Hidden the Empty Elements
         const boxArt = document.querySelector(".card-boxart");
@@ -35,17 +34,25 @@ async function searchToId() {
         const year = document.querySelector("#year");
         addHiddenClass(year);
 
+        const recommendationBox = document.querySelector(".recommendations");
+        addHiddenClass(recommendationBox);
+
         // For Loop
+        const gameDescription = document.querySelector("#description");
         gameDescription.innerHTML = "";
         for (let i = 0; i < gameSearchResults.length; i++) {
           // Ajoutez un gestionnaire d'événements au lien
           const name = gameSearchResults[i].name;
+          const resourceType = gameSearchResults[i].resource_type;
           const gameId = gameSearchResults[i].id;
 
           // A Element Creation for Links to Be Shown
           const gameLink = document.createElement("a");
           gameLink.href = "#"; // Lien vide pour éviter la navigation
-          gameLink.innerHTML = `<h1>${name}</h1>`;
+          gameLink.innerHTML = `
+          <h1>${name}</h1>
+          <span>${resourceType}</span>
+          `;
           gameLink.style.fontSize = "0.6rem";
           gameLink.style.color = "black";
           gameLink.style.transition = "color 0.2s ease-in-out";
@@ -66,9 +73,16 @@ async function searchToId() {
             console.log("fetching gamelink", gameNameSearchResult);
             domFillerForSearch(gameNameSearchResult);
             RmvHiddenClass(boxArt);
+            RmvHiddenClass(recommendationBox);
             if (year.innerHTML !== "undefined") {
               RmvHiddenClass(year);
             }
+
+            // Recommendation not Hiding after First search Solution ?
+            if (domFillerForSearch(gameNameSearchResult) !== true) {
+              addHiddenClass(recommendationBox);
+            }
+
             //    recoForSearchGame(gameNameSearchResult)
           });
 
