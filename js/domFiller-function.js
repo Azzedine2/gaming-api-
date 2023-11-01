@@ -1,7 +1,9 @@
 // Import
 import { addToHistory } from "./addToHistory.js";
+import { recommendation } from "./recommendation.js";
 import { fetchVideo } from "./api-call.js";
 import { key } from "./apiKey.js";
+import { addToFavorite } from "./WIPaddToFav.js";
 
 // Dom Filler Function with Add History
 function domFiller(gameData, clickFromHistory = false) {
@@ -19,6 +21,7 @@ function domFiller(gameData, clickFromHistory = false) {
   const artBoxUrl = gameData.results.image.medium_url;
   const descriptionUrl = gameData.results.deck;
   const gameLink = gameData.results.site_detail_url;
+
   const gameId = gameData.results.id;
 
   // Release Date if Statement
@@ -38,12 +41,17 @@ function domFiller(gameData, clickFromHistory = false) {
   // Add to History artBox Function Call
   if (clickFromHistory === false) {
     addToHistory(artBoxUrl, gameId);
+    console.log("click From History dom: ", clickFromHistory);
   }
+
+  addToFavorite(gameId, artBoxUrl)
 
   gameApiLink.href = gameLink;
 
   description.innerHTML = descriptionUrl;
   year.innerHTML = yearUrl;
+
+  // recommendation(gameData)
 }
 
 export { domFiller };

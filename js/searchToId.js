@@ -5,7 +5,8 @@ import { addHiddenClass, RmvHiddenClass } from "./hiddenCss.js";
 import { domFiller, domFillerForSearch } from "./domFiller-function.js";
 import { key } from "./apiKey.js";
 import { fetchDefineGame } from "./api-call.js";
-import { recoForSearchGame } from "./recommendation.js";
+import { recommendation, recoForSearchGame } from "./recommendation.js";
+import { suggestions } from "./suggestions.js";
 
 async function searchToId() {
   // DOM Elements
@@ -21,7 +22,6 @@ async function searchToId() {
     try {
       const json = await fetchGameSearch(searchTerm);
       const gameSearchResults = json.results;
-
       //   domFillerForSearch(gameSearchResults);
       console.log("Game Data: ", gameSearchResults);
 
@@ -45,6 +45,7 @@ async function searchToId() {
           const name = gameSearchResults[i].name;
           const resourceType = gameSearchResults[i].resource_type;
           const gameId = gameSearchResults[i].id;
+          console.log("game id display:", gameId);
 
           // A Element Creation for Links to Be Shown
           const gameLink = document.createElement("a");
@@ -77,15 +78,24 @@ async function searchToId() {
             if (year.innerHTML !== "undefined") {
               RmvHiddenClass(year);
             }
+            // gameLink[i].addEventListener("click", async (e) => {
+            //   e.preventDefault(); // Empêche la navigation par défaut
+
+            //   const gameData = await fetchDefineGame(gameId);
+            //   console.log("recommendations: ", gameData);
+            //   recommendation(gameData);
+            // });
 
             // Recommendation not Hiding after First search Solution ?
 
             addHiddenClass(recommendationBox);
 
-            console.log(domFillerForSearch(gameNameSearchResult) !== true);
-            console.log(domFillerForSearch(gameNameSearchResult));
+            // console.log(domFillerForSearch(gameNameSearchResult) !== true);
+            // console.log(domFillerForSearch(gameNameSearchResult));
 
-            //    recoForSearchGame(gameNameSearchResult)
+              //  recoForSearchGame(gameId)
+               recoForSearchGame(gameId)
+               
           });
 
           // Ajoutez le lien au conteneur principal (gameDescription)

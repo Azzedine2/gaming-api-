@@ -1,4 +1,4 @@
-import { fetchGame } from "./api-call.js";
+import { fetchDefineGame, fetchGame } from "./api-call.js";
 import { key } from "./apiKey.js";
 import { domFiller, domFillerForSearch } from "./domFiller-function.js";
 import { RandomGameGeneratorGuid } from "./RandomGameGeneratorGuid.js";
@@ -7,9 +7,9 @@ import { searchGame } from "./BackUp/searchFunction.js";
 // ****************** Function Recommendations ************************************
 
 // Function Recommendation
-async function recommendation() {
+async function recommendation(gameData) {
   // Fetch Game All Into Variable
-  const gameData = await fetchGame();
+  gameData = await fetchGame();
   console.log("Game Data log:", gameData);
 
   // Dom Variable for Recommendation
@@ -39,10 +39,10 @@ async function recommendation() {
   //   recoTitleTest.innerHTML = similarGame[Math.floor(Math.random() * 4)]?.id;
   //   recommendationCard.innerHTML = similarGame[Math.floor(Math.random() * 4)]?.id;
 
-  // Promises. all
-  // Array to store Promises
-  const recommendationPromises = similarGame.slice(0, 5).map((game, index) => {
-    return fetchSemilarGameDetails(game.id, recommendationCard[index]);
+  // Promises. all - Array to store Promises
+  const recommendationPromises = similarGame.slice(0, 5).map(async (game, index) => {
+    // return fetchSemilarGameDetails(game.id, recommendationCard[index]);
+    await fetchSemilarGameDetails(game.id, recommendationCard[index]);
   });
 
   // Execute Promises
@@ -81,68 +81,133 @@ async function recommendation() {
 // *************** Alternative for Search Games ************************************
 
 // Function Recommendations for Searched Games
-async function recoForSearchGame(gameData) {
-  // const gameData = await fetchGame();
-  const gameId = gameData.results[0].id;
-  console.log("recoForSearchGame log:", gameId);
+// async function recoForSearchGame(gameId) {
+//   // const gameData = await fetchGame();
+//   // const gameId = gameData.results[0].id;
+//   console.log("recoForSearchGame log:", gameId);
+
+//   // Dom Variable for Recommendation
+//   const recommendationCard = document.querySelectorAll(
+//     ".recommendations .card"
+//   );
+
+//   const recoTitleTest = document.querySelector(".recommendation-title");
+
+//   const urlGameByGuid = `https://www.giantbomb.com/api/game/3030-${gameId}/?api_key=${key}&format=json`;
+
+//   try {
+//     const res = await fetch(urlGameByGuid);
+//     const json = await res.json();
+//     const gameData = json;
+
+//     // Checker
+//     // console.log("json image in reco2: ", gameData.results[0].image.medium_url);
+//     console.log("json image in reco2: ", gameData);
+
+//     // Adding to the card
+//     recommendationCard.forEach((recommendationCard) => {
+//       recommendationCard.style.backgroundImage = `url(${gameData.results.image.medium_url})`;
+//       recommendationCard.style.backgroundSize = "cover";
+//       const cardId = `url(${gameData.results.id})`;
+//       console.log("cardId: ", cardId);
+//     });
+
+//     // Checker
+//     console.log();
+
+//     // Similar Game Variable
+//     const similarGame = gameData.results.similar_games;
+
+//     // Checker
+//     console.log("Similar games:", similarGame);
+
+//     if (similarGame === null) {
+//       // Error Message and Hidden if no Similar Games Found
+//       recoTitleTest.innerHTML = "No similar games";
+//       recommendationCard.forEach((card) => {
+//         card.style.visibility = "hidden";
+//       });
+//       console.log("No similar games");
+
+//       return;
+//     }
+
+//     // Promises. all, Array to store Promises
+//     const recommendationPromises = similarGame
+//       .slice(0, 5)
+//       .map((game, index) => {
+//         return fetchSemilarGameDetails(game.id, recommendationCard[index]);
+//       });
+
+//     // Execute Promises
+//     await Promise.all(recommendationPromises);
+//   } catch (error) {
+//     console.log("Error from Recommendation for Search Catch:", error);
+//   }
+// }
+
+// Function Recommendation
+async function recoForSearchGame(gameId) {
+  // Fetch Game All Into Variable
+  const gameData = await fetchDefineGame(gameId);
+  console.log("Fetch Define Game log:", gameData);
+  console.log("Game id is :", gameId);
 
   // Dom Variable for Recommendation
-  const recommendationCard = document.querySelectorAll(
-    ".recommendations .card"
-  );
-
+  const recommendationCard = document.querySelectorAll(".recommendations .card");
   const recoTitleTest = document.querySelector(".recommendation-title");
 
-  const urlGameByGuid = `https://www.giantbomb.com/api/game/3030-${gameId}/?api_key=${key}&format=json`;
+  // Similar Game Variable
+  const similarGame = gameData.results.similar_games;
 
-  try {
-    const res = await fetch(urlGameByGuid);
-    const json = await res.json();
-    const gameData = json;
+  // Checker
+  console.log("Similar games:", similarGame);
 
-    // Checker
-    console.log("json image in reco2: ", gameData.results[0].image.medium_url);
-
-    // Adding to the card
+  if (similarGame === null) {
+    // Error Message and Hidden if no Similar Games Found
+    recoTitleTest.innerHTML = "No similar games";
     recommendationCard.forEach((card) => {
-      card.style.backgroundImage = `url(${gameData.results.image.medium_url})`;
-      card.style.backgroundSize = "cover";
-      const cardId = `url(${gameData.results.id})`;
-      console.log("cardId: ", cardId);
+      card.style.visibility = "hidden";
     });
+    console.log("No similar games");
+    return;
+  }
 
-    // Checker
-    console.log();
+  // Promises. all - Array to store Promises
+  const recommendationPromises = similarGame.slice(0, 5).map(async(game, index) => {
+    // return fetchSemilarGameDetails(game.id, recommendationCard[index]);
+    await fetchSemilarGameDetails(game.id, recommendationCard[index]); // Undefined
+  });
 
-    // Similar Game Variable
-    const similarGame = gameData.results.similar_games;
+  // Execute Promises
+  await Promise.all(recommendationPromises); // Undefined
 
-    // Checker
-    console.log("Similar games:", similarGame);
+  async function fetchSemilarGameDetails(gameId, card) {
+    const urlGameByGuid = `https://www.giantbomb.com/api/game/3030-${gameId}/?api_key=${key}&format=json`;
 
-    if (similarGame === null) {
-      // Error Message and Hidden if no Similar Games Found
-      recoTitleTest.innerHTML = "No similar games";
-      recommendationCard.forEach((card) => {
-        card.style.visibility = "hidden";
+    try {
+      const res = await fetch(urlGameByGuid);
+      const json = await res.json();
+
+      // Checker
+      // console.log("json medium image", json.results.image.medium_url);
+
+      // Adding to the card
+      if (json.results && json.results.image && json.results.image.medium_url) {
+        card.style.backgroundImage = `url(${json.results.image.medium_url})`; // Undefined
+        card.style.backgroundSize = "cover";
+      }
+      const gameId = gameData.results.id;
+      console.log("cardId: ", gameId);
+
+      card.addEventListener("click", (e) => {
+        e.preventDefault(); // Empêche la navigation par défaut
+        console.log("Card clicked with ID: ", gameId);
+        domFiller(json);
       });
-      console.log("No similar games");
-
-      return;
+    } catch (error) {
+      console.log("Error from Recommendation Catch:", error);
     }
-
-    // Promises. all
-    // Array to store Promises
-    const recommendationPromises = similarGame
-      .slice(0, 5)
-      .map((game, index) => {
-        return fetchSemilarGameDetails(game.id, recommendationCard[index]);
-      });
-
-    // Execute Promises
-    await Promise.all(recommendationPromises);
-  } catch (error) {
-    console.log("Error from Recommendation Catch:", error);
   }
 }
 

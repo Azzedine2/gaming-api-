@@ -1,7 +1,7 @@
 // Import
 import { recommendation } from "./recommendation.js";
-import { addToHistory } from "./addToHistory.js";
 import { searchToId } from "./searchToId.js";
+import { addToHistory } from "./addToHistory.js";
 import { addHiddenClass, RmvHiddenClass } from "./hiddenCss.js";
 import { searchGame } from "./BackUp/searchFunction.js";
 import { clickSend } from "./clickSend.js";
@@ -18,11 +18,10 @@ function initializeSearch() {
   submitButton.onclick = () => {
     // gameAll.style.visibility = "visible";
     RmvHiddenClass(gameAll)
-    addToHistory();
-    recommendation();
+    // addToHistory();
   };
 
-  addToHistory();
+  // addToHistory();
 }
 
 export { initializeSearch };

@@ -5,7 +5,7 @@ import { searchGame } from "../js/BackUp/searchFunction.js";
 import { addToHistory } from "../js/addToHistory.js";
 import { initializeSearch } from "../js/initializeSearch.js";
 
-console.log(await fetchGameSpecifiq);
+// console.log(await fetchGameSpecifiq);
 
 // DOM
 const bgImg = document.querySelector(".bg-image");

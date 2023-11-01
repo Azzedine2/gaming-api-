@@ -31,39 +31,37 @@ const urlGameAll = `https://www.giantbomb.com/api/games/?api_key=${key}&format=j
 // Checker
 console.log();
 
-// Async Fetch One Random Game
+// Async Fetch One Random Game 
 async function fetchGame() {
   try {
     // Random Page Api Call
     const urlGameByGuid = `https://www.giantbomb.com/api/game/3030-${randomGameIndexForGuidSearch}/?api_key=${key}&format=json`;
 
     const res = await fetch(urlGameByGuid);
-    const json = await res.json();
-    console.log(json);
-    console.log("Search By Random Game Results: ", json);
-    return json;
+    const gameData = await res.json();
+    console.log("Search By Random Game Results: ", gameData);
+    return gameData;
   } catch (error) {
     console.log("Droid not there:", error);
   }
 }
 
-// Async Fetch One Define Game
+// Async Fetch One Define Game (Same but to work with Game ID)
 async function fetchDefineGame(gameId) {
   try {
     // Random Page Api Call
     const UrlDefineGame = `https://www.giantbomb.com/api/game/3030-${gameId}/?api_key=${key}&format=json`;
 
     const res = await fetch(UrlDefineGame);
-    const json = await res.json();
-    console.log(json);
-    console.log("Search By Random Game Results: ", json);
-    return json;
+    const gameData = await res.json();
+    console.log("Search By Define Game Results: ", gameData);
+    return gameData;
   } catch (error) {
     console.log("Droid not there:", error);
   }
 }
 
-// Async Fetch Array of Specifiq Games
+// Async Fetch Array of Specifiq Games for About Page
 async function fetchGameSpecifiq() {
   try {
     const res = await fetch(urlGameByGuidAbout);
@@ -83,10 +81,9 @@ async function fetchGameSearch(searchTerm) {
     const urlGameBySearch = `https://www.giantbomb.com/api/search/?api_key=${key}&format=json&query=${searchTerm}`;
     // Search Page Api Call
     const res = await fetch(urlGameBySearch);
-    const json = await res.json();
-    console.log(json);
-    console.log("Search By Game Terms Results: ", json);
-    return json;
+    const gameData = await res.json();
+    console.log("Search By Game Terms Results: ", gameData);
+    return gameData;
   } catch (error) {
     console.log("Droid not there:", error);
   }
