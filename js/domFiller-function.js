@@ -44,7 +44,7 @@ function domFiller(gameData, clickFromHistory = false) {
     console.log("click From History dom: ", clickFromHistory);
   }
 
-  addToFavorite(gameId, artBoxUrl)
+  addToFavorite(gameId, artBoxUrl);
 
   gameApiLink.href = gameLink;
 

@@ -91,13 +91,20 @@ let history;
 
 function historyLength(artBoxUrl, gameId) {
   loadHistory();
-  if (history.length >= 3) {
-    history.shift();
+
+  // const isNotDuplicate = history.every()
+  const isNotDuplicate = !history.some(
+    (item) => item.artBoxUrl === artBoxUrl && item.gameId === gameId
+  );
+
+  if (isNotDuplicate) {
+    if (history.length >= 3) {
+      history.shift();
+      // history.push({ artBoxUrl, gameId });
+    }
     history.push({ artBoxUrl, gameId });
-  } else {
-    history.push({ artBoxUrl, gameId });
+    saveHistory();
   }
-  saveHistory();
 }
 
 function saveHistory() {
@@ -125,8 +132,9 @@ function displayHistory() {
     // Click Listener
     historyCard[i].addEventListener("click", async function () {
       // fetchDefineGame(gameId)
+      console.log("click from history function");
       domFiller(await fetchDefineGame(gameId));
-  });
+    });
   }
 }
 
