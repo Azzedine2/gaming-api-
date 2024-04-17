@@ -1,4 +1,4 @@
 // API Key
-const key = "a3ed24058c6960422612f376ca988d6bdc6d4a67";
+const key = "e67703c99c3cab71a66d5a23e33edbc289d0fb4a";
 
 export { key };
